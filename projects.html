@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RA Innovation Company | Projects</title>
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background:#070013;
+      color:#e6ebff;
+    }
+
+    /* background veil */
+    .veil{
+      position:fixed;
+      inset:0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(138,43,226,.15), transparent 60%),
+        radial-gradient(circle at 80% 70%, rgba(0,255,255,.12), transparent 60%);
+      z-index:-1;
+    }
+
+    header{
+      background:rgba(10,0,25,.7);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .wrap{
+      max-width:1200px;
+      margin:auto;
+      padding:18px 20px;
+    }
+
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .brand img{
+      height:44px;
+      filter: drop-shadow(0 0 10px #7f5cff);
+    }
+
+    .brand .t{
+      font-size:22px;
+      font-weight:700;
+      background:linear-gradient(135deg,#8a2be2,#00ffff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .brand .s{
+      font-size:13px;
+      color:#9aa6ff;
+      letter-spacing:.04em;
+    }
+
+    nav{
+      display:flex;
+      gap:26px;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#b9c4ff;
+      font-size:15px;
+      transition:.2s;
+    }
+
+    nav a:hover,
+    nav a.active{
+      color:#00ffff;
+      text-shadow:0 0 8px #00ffff;
+    }
+
+    .right{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .lang button{
+      background:none;
+      border:1px solid rgba(255,255,255,.2);
+      color:#dfe6ff;
+      padding:6px 10px;
+      cursor:pointer;
+    }
+
+    .lang button.active{
+      background:linear-gradient(135deg,#8a2be2,#00ffff);
+      color:#070013;
+      font-weight:700;
+    }
+
+    /* main */
+    main{
+      padding:80px 20px;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    h1{
+      font-size:42px;
+      margin-bottom:18px;
+      background:linear-gradient(135deg,#8a2be2,#00ffff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .lead{
+      max-width:720px;
+      color:#cbd4ff;
+      margin-bottom:60px;
+      line-height:1.6;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:28px;
+    }
+
+    .card{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
+      padding:26px;
+      border-radius:16px;
+      transition:.25s;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 0 25px rgba(0,255,255,.15),
+                 0 0 25px rgba(138,43,226,.15);
+    }
+
+    .card h3{
+      font-size:20px;
+      margin-bottom:12px;
+      background:linear-gradient(135deg,#8a2be2,#00ffff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .card p{
+      font-size:14px;
+      color:#c5cfff;
+      line-height:1.6;
+    }
+
+    footer{
+      border-top:1px solid rgba(255,255,255,.08);
+      text-align:center;
+      padding:30px 20px;
+      color:#7f8cff;
+      font-size:13px;
+    }
+
+    body.rtl{
+      direction:rtl;
+    }
+  </style>
+</head>
+
+<body>
+<div class="veil"></div>
+
+<header>
+  <div class="wrap top">
+    <div class="brand">
+      <img src="RA_Logo.png" alt="RA Logo">
+      <div>
+        <div class="t">RA</div>
+        <div class="s" data-i="brandSub">Innovation Studio</div>
+      </div>
+    </div>
+
+    <nav>
+      <a href="index.html" data-i="navHome">Home</a>
+      <a href="projects.html" class="active" data-i="navProjects">Projects</a>
+      <a href="company.html" data-i="navCompany">Company</a>
+      <a href="#contact" data-i="navContact">Contact</a>
+    </nav>
+
+    <div class="right">
+      <div class="lang">
+        <button id="btnDE" class="active" onclick="setLang('de')">DE</button>
+        <button id="btnEN" onclick="setLang('en')">EN</button>
+        <button id="btnAR" onclick="setLang('ar')">AR</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <h1 data-i="title">Selected High-Value Projects</h1>
+  <p class="lead" data-i="lead">
+    A curated portfolio of advanced innovation concepts, designed for global relevance,
+    strategic licensing, and long-term impact.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Silent Mind</h3>
+      <p data-i="p1">A medical-oriented smart vision system designed to assist patients and special-needs users.</p>
+    </div>
+
+    <div class="card">
+      <h3>FixMind</h3>
+      <p data-i="p2">An AI-assisted cognitive support platform focused on real-time guidance and decision aid.</p>
+    </div>
+
+    <div class="card">
+      <h3>IronWall AI</h3>
+      <p data-i="p3">A multi-layer intelligent protection system for data, systems, and digital infrastructure.</p>
+    </div>
+
+    <div class="card">
+      <h3>Pocket Wipe</h3>
+      <p data-i="p4">A practical everyday product concept designed for mass usability and sustainable production.</p>
+    </div>
+
+    <div class="card">
+      <h3>Silent Guardian</h3>
+      <p data-i="p5">A privacy-focused protection concept addressing modern digital surveillance risks.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p data-i="legal">
+    All concepts presented are intellectual property of RA Innovation Company.
+    Unauthorized use or replication is prohibited.
+  </p>
+</footer>
+
+<script>
+const T={
+  de:{
+    brandSub:"Innovation Studio",
+    navHome:"Home",
+    navProjects:"Projects",
+    navCompany:"Company",
+    navContact:"Contact",
+    title:"Ausgewählte Hochwertige Projekte",
+    lead:"Eine kuratierte Auswahl fortschrittlicher Innovationskonzepte mit globaler Relevanz.",
+    p1:"Medizinisch orientiertes Smart-Vision-System zur Unterstützung von Patienten.",
+    p2:"KI-gestützte kognitive Assistenzplattform.",
+    p3:"Intelligentes mehrschichtiges Schutzsystem für digitale Infrastrukturen.",
+    p4:"Alltagsprodukt-Konzept für nachhaltige Massenanwendung.",
+    p5:"Datenschutz- und Sicherheitskonzept gegen moderne Überwachungsrisiken.",
+    legal:"Alle dargestellten Konzepte sind geistiges Eigentum der RA Innovation Company."
+  },
+  en:{
+    brandSub:"Innovation Studio",
+    navHome:"Home",
+    navProjects:"Projects",
+    navCompany:"Company",
+    navContact:"Contact",
+    title:"Selected High-Value Projects",
+    lead:"A curated portfolio of advanced innovation concepts with global relevance.",
+    p1:"Medical-oriented smart vision assistance system.",
+    p2:"AI-assisted cognitive support platform.",
+    p3:"Intelligent multi-layer digital protection system.",
+    p4:"Everyday product concept for sustainable mass use.",
+    p5:"Privacy and security concept against modern surveillance risks.",
+    legal:"All concepts are intellectual property of RA Innovation Company."
+  },
+  ar:{
+    brandSub:"استوديو ابتكار",
+    navHome:"الرئيسية",
+    navProjects:"المشاريع",
+    navCompany:"الشركة",
+    navContact:"تواصل",
+    title:"مشاريع عالية القيمة",
+    lead:"مجموعة مختارة من مفاهيم الابتكار المتقدمة ذات التأثير العالمي.",
+    p1:"نظام رؤية ذكي موجه للاستخدام الطبي.",
+    p2:"منصة دعم إدراكي مدعومة بالذكاء الاصطناعي.",
+    p3:"نظام حماية رقمي ذكي متعدد الطبقات.",
+    p4:"فكرة منتج يومي للاستخدام المستدام.",
+    p5:"مفهوم لحماية الخصوصية من مخاطر المراقبة الحديثة.",
+    legal:"جميع المفاهيم المعروضة ملكية فكرية لشركة RA."
+  }
+};
+
+function setLang(l){
+  document.body.classList.toggle("rtl",l==="ar");
+  document.documentElement.lang=l;
+  document.querySelectorAll(".lang button").forEach(b=>b.classList.remove("active"));
+  document.getElementById("btn"+l.toUpperCase()).classList.add("active");
+  document.querySelectorAll("[data-i]").forEach(e=>{
+    e.textContent=T[l][e.dataset.i];
+  });
+}
+</script>
+
+</body>
+</html>

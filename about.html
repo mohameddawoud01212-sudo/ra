@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RA – Über uns</title>
+  <style>
+    :root{
+      --bg1:#0b1020; --bg2:#0f1b3a; --card:#0f1733cc; --text:#eaf0ff; --muted:#b9c6ffcc;
+      --shadow:0 20px 60px rgba(0,0,0,.35); --radius:18px; --max:1040px; --font:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      --accent:#7aa2ff; --accent2:#8bffda;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:var(--font); color:var(--text);
+      background: radial-gradient(1200px 700px at 20% 10%, #1b2b6a55 0%, transparent 60%),
+                  radial-gradient(900px 600px at 90% 25%, #00ffd533 0%, transparent 55%),
+                  linear-gradient(160deg, var(--bg1) 0%, var(--bg2) 55%, #050814 100%);
+      min-height:100vh;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px;}
+    .top{
+      display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      padding:14px 18px; border:1px solid rgba(255,255,255,.08); background:rgba(12,18,40,.55);
+      border-radius:var(--radius); box-shadow:var(--shadow); backdrop-filter: blur(10px);
+    }
+    nav{display:flex; gap:10px; flex-wrap:wrap}
+    .navlink{padding:10px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.04); font-size:14px;}
+    .navlink.active{border-color: rgba(139,255,218,.65); background: rgba(139,255,218,.10);}
+    .lang{display:flex; gap:8px}
+    .lang button{padding:9px 10px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04); color:var(--text); cursor:pointer; font-weight:700; min-width:46px;}
+    .lang button.is-active{border-color: rgba(122,162,255,.85); background: rgba(122,162,255,.18);}
+
+    .card{
+      margin-top:18px; border:1px solid rgba(255,255,255,.10); background: var(--card);
+      border-radius: var(--radius); padding:18px; box-shadow: var(--shadow); backdrop-filter: blur(10px);
+    }
+    h1{
+      margin:0;
+      background: linear-gradient(90deg, #ffffff, #c7d6ff, #8bffda);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    p{color:var(--muted); line-height:1.8; margin:10px 0 0}
+    ul{margin:12px 0 0; color:var(--muted); line-height:1.8}
+    footer{margin:26px 0 6px; text-align:center; color:rgba(255,255,255,.45); font-size:12px;}
+    body[dir="rtl"] .wrap{direction:rtl}
+    body[dir="rtl"] nav{direction:ltr}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <nav>
+        <a class="navlink" href="index.html" data-i18n="navHome">Home</a>
+        <a class="navlink active" href="about.html" data-i18n="navAbout">Über uns</a>
+        <a class="navlink" href="contact.html" data-i18n="navContact">Kontakt</a>
+      </nav>
+      <div class="lang">
+        <button id="btnDE" type="button">DE</button>
+        <button id="btnEN" type="button">EN</button>
+        <button id="btnAR" type="button">AR</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h1 data-i18n="title">Über RA</h1>
+      <p data-i18n="p1">
+        RA ist eine Innovationsfirma. Wir verwandeln Ideen in klare Konzepte, Prototypen und marktreife Lösungen.
+      </p>
+      <ul>
+        <li data-i18n="li1">Klare Struktur & saubere Dokumentation</li>
+        <li data-i18n="li2">Schnelle Iteration & Prototyping</li>
+        <li data-i18n="li3">Fokus auf Qualität, Sicherheit und Umsetzung</li>
+      </ul>
+    </div>
+
+    <footer><span data-i18n="footer">© RA – Innovation Company</span></footer>
+  </div>
+
+  <script>
+    const TEXTS = {
+      de:{navHome:"Home",navAbout:"Über uns",navContact:"Kontakt",title:"Über RA",p1:"RA ist eine Innovationsfirma. Wir verwandeln Ideen in klare Konzepte, Prototypen und marktreife Lösungen.",li1:"Klare Struktur & saubere Dokumentation",li2:"Schnelle Iteration & Prototyping",li3:"Fokus auf Qualität, Sicherheit und Umsetzung",footer:"© RA – Innovation Company"},
+      en:{navHome:"Home",navAbout:"About",navContact:"Contact",title:"About RA",p1:"RA is an innovation company. We turn ideas into clear concepts, prototypes, and market-ready solutions.",li1:"Clear structure & clean documentation",li2:"Fast iteration & prototyping",li3:"Focus on quality, safety, and execution",footer:"© RA – Innovation Company"},
+      ar:{navHome:"الرئيسية",navAbout:"من نحن",navContact:"تواصل",title:"عن رع",p1:"رع شركة ابتكار. نحول الأفكار إلى مفاهيم واضحة ونماذج أولية وحلول جاهزة للسوق.",li1:"هيكلة واضحة وتوثيق مرتب",li2:"تطوير سريع ونماذج أولية",li3:"تركيز على الجودة والأمان والتنفيذ",footer:"© رع – شركة ابتكار"}
+    };
+    function setLang(lang){
+      const t = TEXTS[lang] || TEXTS.de;
+      document.documentElement.lang = (lang==="ar")?"ar":(lang==="en"?"en":"de");
+      document.body.dir = (lang==="ar")?"rtl":"ltr";
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const k=el.getAttribute("data-i18n"); if(t[k]) el.textContent=t[k];
+      });
+      ["DE","EN","AR"].forEach(c=>document.getElementById("btn"+c).classList.remove("is-active"));
+      document.getElementById("btn"+lang.toUpperCase()).classList.add("is-active");
+      localStorage.setItem("ra_lang", lang);
+    }
+    document.getElementById("btnDE").onclick=()=>setLang("de");
+    document.getElementById("btnEN").onclick=()=>setLang("en");
+    document.getElementById("btnAR").onclick=()=>setLang("ar");
+    setLang(localStorage.getItem("ra_lang") || "de");
+  </script>
+</body>
+</html>

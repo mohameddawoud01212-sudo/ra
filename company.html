@@ -1,0 +1,874 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RA — Company</title>
+  <meta name="description" content="RA — Company profile. DE/EN/AR." />
+  <meta name="theme-color" content="#080018" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#080018;
+      --text:#e0eaff;
+      --muted:rgba(224,234,255,.70);
+      --muted2:rgba(224,234,255,.55);
+      --a1:#8A2BE2;
+      --a2:#00FFFF;
+      --grad:linear-gradient(135deg,var(--a1),var(--a2));
+      --shadow2:0 12px 40px rgba(0,0,0,.35);
+      --max:1160px;
+
+      --logo-size: 125vmax;
+      --logo-opacity: .10;
+    }
+
+    *{box-sizing:border-box;}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-3;
+      pointer-events:none;
+      background:
+        radial-gradient(1200px 700px at 18% 15%, rgba(138,43,226,.22), transparent 60%),
+        radial-gradient(1000px 650px at 88% 25%, rgba(0,255,255,.14), transparent 55%),
+        radial-gradient(900px 650px at 50% 110%, rgba(138,43,226,.10), transparent 55%),
+        linear-gradient(180deg, #070013 0%, #09001c 55%, #05000e 100%);
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      inset:-12vh -12vw;
+      z-index:-2;
+      pointer-events:none;
+      background-image:url("RA_Logo.png");
+      background-repeat:no-repeat;
+      background-position:center center;
+      background-size:var(--logo-size);
+      opacity:var(--logo-opacity);
+      mix-blend-mode:screen;
+      filter: blur(.15px) saturate(1.05);
+    }
+
+    .veil{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      pointer-events:none;
+      background: radial-gradient(900px 600px at 50% 35%, rgba(0,0,0,.18), rgba(0,0,0,.48));
+    }
+
+    .wrap{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(14px);
+      background: rgba(8,0,24,.70);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:14px 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      user-select:none;
+    }
+    .brand img{
+      width:40px;height:40px;object-fit:contain;
+      filter: drop-shadow(0 0 14px rgba(0,255,255,.18));
+    }
+    .brand .t{
+      font-weight:900;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:13px;
+      background:var(--grad);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .brand .s{
+      margin-top:6px;
+      font-size:12px;
+      color:var(--muted2);
+      font-weight:700;
+      letter-spacing:.02em;
+    }
+
+    nav{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:.02em;
+    }
+    nav a{
+      color:inherit;
+      text-decoration:none;
+      opacity:.88;
+      padding:8px 10px;
+      border-radius:999px;
+      transition:.2s ease;
+      border:1px solid transparent;
+    }
+    nav a:hover{
+      opacity:1;
+      background:rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.10);
+      color:var(--text);
+    }
+    nav a.active{
+      opacity:1;
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color:var(--text);
+    }
+
+    .right{ display:flex; align-items:center; gap:10px; }
+
+    .lang{
+      display:flex; gap:4px; padding:4px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+    }
+    .lang button{
+      border:0; background:transparent; color:var(--muted);
+      padding:8px 10px; border-radius:999px; cursor:pointer;
+      font-weight:900; font-size:12px; letter-spacing:.08em; min-width:46px;
+      transition:.2s ease;
+    }
+    .lang button:hover{ color:var(--text); }
+    .lang button.active{ background: rgba(255,255,255,.14); color: var(--text); }
+
+    .cta{
+      border:1px solid rgba(255,255,255,.16);
+      background: var(--grad);
+      color:#070013;
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:900;
+      cursor:pointer;
+      box-shadow: 0 18px 50px rgba(138,43,226,.14);
+      transition:.2s ease;
+      white-space:nowrap;
+    }
+    .cta:hover{ transform: translateY(-1px); filter: brightness(1.06); }
+
+    main{ padding: 34px 0 18px; }
+
+    .hero{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: var(--shadow2);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-90px;
+      background:var(--grad);
+      opacity:.06;
+      filter: blur(65px);
+      pointer-events:none;
+    }
+    .hero h1{
+      margin:0 0 8px;
+      font-size: clamp(30px, 4vw, 44px);
+      letter-spacing:-.03em;
+      font-weight:900;
+    }
+    .hero p{
+      margin:0;
+      color:var(--muted);
+      max-width: 75ch;
+      line-height:1.75;
+      font-size:14.5px;
+    }
+
+    .toc{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin: 14px 0 0;
+    }
+    .chip{
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      font-weight:900;
+      font-size:12px;
+      cursor:pointer;
+      transition:.2s ease;
+      text-decoration:none;
+    }
+    .chip:hover{ border-color: rgba(255,255,255,.22); transform: translateY(-1px); }
+    .chip.primary{ background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.22); }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:14px;
+      margin-top: 14px;
+    }
+    .card{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      border-radius: 22px;
+      padding:16px;
+      box-shadow: var(--shadow2);
+      transition:.25s ease;
+      position:relative;
+      overflow:hidden;
+      min-height: 160px;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-90px;
+      background:var(--grad);
+      opacity:.05;
+      filter: blur(65px);
+      pointer-events:none;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+    }
+
+    .kicker{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom: 10px;
+    }
+    .tag{
+      font-size:12px;
+      font-weight:900;
+      color: rgba(224,234,255,.9);
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+    }
+    .name{
+      font-size:17px;
+      font-weight:900;
+      margin: 6px 0 8px;
+      letter-spacing:-.01em;
+    }
+    .desc{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:14px;
+    }
+
+    .list{
+      margin:10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height:1.75;
+      font-size:14px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 14px;
+    }
+    .btn{
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:900;
+      cursor:pointer;
+      transition:.2s ease;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:12.5px;
+    }
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.22); }
+    .btn.primary{
+      background: var(--grad);
+      color:#070013;
+      border-color: rgba(255,255,255,.18);
+    }
+
+    footer{
+      margin:26px 0 40px;
+      padding-top:18px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      color: var(--muted2);
+      font-size:12.5px;
+      line-height:1.6;
+    }
+
+    /* RTL */
+    body.rtl{ direction:rtl; }
+    body.rtl .top{ flex-direction: row-reverse; }
+    body.rtl nav{ flex-direction: row-reverse; }
+    body.rtl .right{ flex-direction: row-reverse; }
+    body.rtl .brand{ direction:ltr; }
+    body.rtl .kicker{ flex-direction: row-reverse; }
+
+    @media (max-width: 980px){
+      nav{ display:none; }
+      .grid{ grid-template-columns: 1fr; }
+      :root{ --logo-size: 150vmax; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="veil"></div>
+
+  <header>
+    <div class="wrap">
+      <div class="top">
+        <div class="brand">
+          <img src="RA_Logo.png" alt="RA Logo">
+          <div>
+            <div class="t">RA</div>
+            <div class="s" data-i="brandSub">Innovation Studio</div>
+          </div>
+        </div>
+
+        <nav>
+          <a href="index.html" data-i="navHome">Home</a>
+          <a href="projects.html" data-i="navProjects">Projects</a>
+          <a href="company.html" class="active" data-i="navCompany">Company</a>
+          <a href="#contact" data-i="navContact">Contact</a>
+        </nav>
+
+        <div class="right">
+          <div class="lang">
+            <button id="btnDE" type="button" class="active">DE</button>
+            <button id="btnEN" type="button">EN</button>
+            <button id="btnAR" type="button">AR</button>
+          </div>
+          <button class="cta" id="ctaTop" type="button" data-i="ctaTop">Kontakt</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <h1 data-i="h1">RA — Company Profile</h1>
+      <p data-i="h2">A premium innovation entity with a structured operating model, confidentiality-first disclosure, and clear ethical boundaries.</p>
+
+      <div class="toc">
+        <a class="chip primary" href="#identity" data-i="toc1">Identity</a>
+        <a class="chip" href="#model" data-i="toc2">Operating Model</a>
+        <a class="chip" href="#conf" data-i="toc3">Confidentiality</a>
+        <a class="chip" href="#ip" data-i="toc4">IP Philosophy</a>
+        <a class="chip" href="#ethics" data-i="toc5">Ethics</a>
+        <a class="chip" href="#media" data-i="toc6">Media</a>
+        <a class="chip" href="#contact" data-i="toc7">Contact Rules</a>
+      </div>
+    </div>
+
+    <div class="grid" style="margin-top:14px;">
+      <!-- Identity -->
+      <section class="card" id="identity">
+        <div class="kicker">
+          <span class="tag" data-i="tagCompany">COMPANY</span>
+          <span class="tag" data-i="tagIdentity">IDENTITY</span>
+        </div>
+        <div class="name" data-i="idTitle">Corporate Identity Statement</div>
+        <p class="desc" data-i="idDesc">
+          RA is a concept-driven innovation entity focused on architecting high-value, scalable ideas designed for global markets.
+        </p>
+        <ul class="list">
+          <li data-i="idA">Positioning: premium, credible, and globally oriented.</li>
+          <li data-i="idB">Focus: clarity, feasibility, and investor-ready packaging.</li>
+          <li data-i="idC">Approach: confidentiality-first and compliance-aware.</li>
+        </ul>
+      </section>
+
+      <!-- What is / is not -->
+      <section class="card">
+        <div class="kicker">
+          <span class="tag" data-i="tagClarity">CLARITY</span>
+          <span class="tag" data-i="tagScope">SCOPE</span>
+        </div>
+        <div class="name" data-i="wiTitle">What RA is / What RA is not</div>
+        <p class="desc" data-i="wiDesc">
+          Clear boundaries protect time, focus, and professional standards.
+        </p>
+        <ul class="list">
+          <li><b data-i="wiIs">RA IS:</b> <span data-i="wiIsText">concept architect, innovation originator, IP-aware entity.</span></li>
+          <li><b data-i="wiNot">RA IS NOT:</b> <span data-i="wiNotText">contract manufacturer, outsourcing agency, marketing shop.</span></li>
+        </ul>
+      </section>
+
+      <!-- Operating model -->
+      <section class="card" id="model">
+        <div class="kicker">
+          <span class="tag" data-i="tagOps">OPERATIONS</span>
+          <span class="tag" data-i="tagModel">MODEL</span>
+        </div>
+        <div class="name" data-i="opTitle">Operating Model</div>
+        <p class="desc" data-i="opDesc">
+          A structured process designed to transform concepts into credible, scalable assets.
+        </p>
+        <ul class="list">
+          <li data-i="op1">Idea origination & problem framing</li>
+          <li data-i="op2">Concept architecture & feasibility logic</li>
+          <li data-i="op3">Validation pathway & milestone planning</li>
+          <li data-i="op4">IP & legal framing (as applicable)</li>
+          <li data-i="op5">Investor-ready packaging (decks, briefs, summaries)</li>
+        </ul>
+      </section>
+
+      <!-- Legal presence -->
+      <section class="card">
+        <div class="kicker">
+          <span class="tag" data-i="tagLegal">LEGAL</span>
+          <span class="tag" data-i="tagEU">EU</span>
+        </div>
+        <div class="name" data-i="lpTitle">Legal Presence & Jurisdiction</div>
+        <p class="desc" data-i="lpDesc">
+          RA is positioned with a compliance-first mindset aligned with Germany / EU standards.
+        </p>
+        <ul class="list">
+          <li data-i="lp1">Focus on professional documentation and traceability.</li>
+          <li data-i="lp2">Disclosure handled carefully and responsibly.</li>
+          <li data-i="lp3">Compliance and safety are treated as a design constraint.</li>
+        </ul>
+      </section>
+
+      <!-- Confidentiality -->
+      <section class="card" id="conf">
+        <div class="kicker">
+          <span class="tag" data-i="tagConf">CONFIDENTIALITY</span>
+          <span class="tag" data-i="tagDisclosure">DISCLOSURE</span>
+        </div>
+        <div class="name" data-i="cfTitle">Confidentiality & Disclosure Policy</div>
+        <p class="desc" data-i="cfDesc">
+          Detailed technical or commercial information is shared only under confidentiality agreements.
+        </p>
+        <ul class="list">
+          <li data-i="cf1">Public: high-level positioning, non-sensitive summaries.</li>
+          <li data-i="cf2">Private: detailed briefs, technical notes, commercial structure.</li>
+          <li data-i="cf3">NDA: used before deep disclosure when required.</li>
+        </ul>
+      </section>
+
+      <!-- IP philosophy -->
+      <section class="card" id="ip">
+        <div class="kicker">
+          <span class="tag" data-i="tagIP">IP</span>
+          <span class="tag" data-i="tagStrategy">STRATEGY</span>
+        </div>
+        <div class="name" data-i="ipTitle">IP Philosophy</div>
+        <p class="desc" data-i="ipDesc">
+          Not everything belongs online. IP is handled with timing, evidence, and strategic disclosure.
+        </p>
+        <ul class="list">
+          <li data-i="ip1">Protect the core: differentiate what is public vs protected.</li>
+          <li data-i="ip2">Document proof: dates, versions, and authored material.</li>
+          <li data-i="ip3">Use the right instrument: NDA, copyright notice, filings when applicable.</li>
+        </ul>
+      </section>
+
+      <!-- Founder statement -->
+      <section class="card">
+        <div class="kicker">
+          <span class="tag" data-i="tagFounder">FOUNDER</span>
+          <span class="tag" data-i="tagStatement">STATEMENT</span>
+        </div>
+        <div class="name" data-i="fsTitle">Founder’s Letter</div>
+        <p class="desc" data-i="fsDesc">
+          I build high-value concepts with disciplined structure. RA exists to turn vision into credible assets — without noise, without exaggeration, and with professional boundaries.
+        </p>
+      </section>
+
+      <!-- Ethics -->
+      <section class="card" id="ethics">
+        <div class="kicker">
+          <span class="tag" data-i="tagEthics">ETHICS</span>
+          <span class="tag" data-i="tagBoundaries">BOUNDARIES</span>
+        </div>
+        <div class="name" data-i="etTitle">Ethics & Boundaries</div>
+        <p class="desc" data-i="etDesc">
+          RA does not support unlawful, harmful, deceptive, or abusive deployment. Safety and responsibility matter.
+        </p>
+        <ul class="list">
+          <li data-i="et1">No deceptive claims, no fabricated partnerships.</li>
+          <li data-i="et2">No misuse for harm, surveillance abuse, or illegal activity.</li>
+          <li data-i="et3">Clarity and transparency in communication.</li>
+        </ul>
+      </section>
+
+      <!-- Media -->
+      <section class="card" id="media">
+        <div class="kicker">
+          <span class="tag" data-i="tagMedia">MEDIA</span>
+          <span class="tag" data-i="tagPress">PRESS</span>
+        </div>
+        <div class="name" data-i="mdTitle">Media & Press Readiness</div>
+        <p class="desc" data-i="mdDesc">
+          Press kit and official statements are provided in a controlled, brand-consistent format.
+        </p>
+        <ul class="list">
+          <li data-i="md1">Press kit: Coming soon (logos, short profile, approved wording).</li>
+          <li data-i="md2">Official statements: released only through RA channels.</li>
+          <li data-i="md3">Consistency: one narrative, premium standard.</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Contact rules -->
+    <section class="card" id="contact" style="margin-top:14px;">
+      <div class="kicker">
+        <span class="tag" data-i="tagContact">CONTACT</span>
+        <span class="tag" data-i="tagRules">RULES</span>
+      </div>
+      <div class="name" data-i="crTitle">Contact Rules</div>
+      <p class="desc" data-i="crDesc">
+        Email only. Structured requests are preferred. Unsolicited calls are not supported.
+      </p>
+      <ul class="list">
+        <li data-i="cr1">Email-only communication (no phone).</li>
+        <li data-i="cr2">Provide context: who you are, what you want, timeline.</li>
+        <li data-i="cr3">If deep disclosure is needed: NDA first.</li>
+      </ul>
+
+      <div class="actions">
+        <a class="btn primary" href="mailto:dawoudmohamed090@gmail.com?subject=RA%20—%20Company%20Contact" data-i="crBtn">Send Email</a>
+        <a class="btn" href="index.html" data-i="crBack">Back to Home</a>
+      </div>
+
+      <footer>
+        <div data-i="legal">Hinweis: Diese Idee ist urheberrechtlich geschützt. Eine kommerzielle Nutzung oder Nachahmung ohne schriftliche Genehmigung ist untersagt.</div>
+        <div style="margin-top:10px;color:rgba(224,234,255,.35)">© <span id="y"></span> RA</div>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    const T = {
+      de:{
+        brandSub:"Innovation Studio",
+        navHome:"Start", navProjects:"Projekte", navCompany:"Unternehmen", navContact:"Kontakt",
+        ctaTop:"Kontakt",
+
+        h1:"RA — Unternehmensprofil",
+        h2:"Ein Premium-Innovations-Entity mit strukturiertem Operating Model, Confidentiality-first Disclosure und klaren ethischen Grenzen.",
+
+        toc1:"Identität", toc2:"Operating Model", toc3:"Vertraulichkeit", toc4:"IP-Philosophie", toc5:"Ethik", toc6:"Medien", toc7:"Kontaktregeln",
+
+        tagCompany:"UNTERNEHMEN", tagIdentity:"IDENTITÄT",
+        idTitle:"Corporate Identity Statement",
+        idDesc:"RA ist ein konzeptgetriebenes Innovations-Entity mit Fokus auf die Architektur hochwertiger, skalierbarer Ideen für globale Märkte.",
+        idA:"Positionierung: Premium, glaubwürdig und global orientiert.",
+        idB:"Fokus: Klarheit, Machbarkeit und investorentaugliche Aufbereitung.",
+        idC:"Ansatz: Vertraulichkeit zuerst und compliance-bewusst.",
+
+        tagClarity:"KLARHEIT", tagScope:"SCOPE",
+        wiTitle:"Was RA ist / Was RA nicht ist",
+        wiDesc:"Klare Grenzen schützen Zeit, Fokus und professionelle Standards.",
+        wiIs:"RA IST:",
+        wiIsText:"Konzept-Architekt, Innovation-Originator, IP-bewusstes Entity.",
+        wiNot:"RA IST NICHT:",
+        wiNotText:"Auftragsfertiger, Outsourcing-Agentur, Marketing-Office.",
+
+        tagOps:"OPERATIONS", tagModel:"MODEL",
+        opTitle:"Operating Model",
+        opDesc:"Ein strukturierter Prozess, um Konzepte in glaubwürdige, skalierbare Assets zu überführen.",
+        op1:"Ideenentstehung & Problem-Definition",
+        op2:"Konzept-Architektur & Machbarkeitslogik",
+        op3:"Validierungsweg & Meilensteinplanung",
+        op4:"IP- & Legal-Framing (wenn zutreffend)",
+        op5:"Investor-ready Packaging (Decks, Briefs, Summaries)",
+
+        tagLegal:"LEGAL", tagEU:"EU",
+        lpTitle:"Rechtlicher Rahmen & Jurisdiktion",
+        lpDesc:"RA ist mit einem compliance-first Mindset positioniert, ausgerichtet auf Deutschland / EU Standards.",
+        lp1:"Fokus auf professionelle Dokumentation und Nachvollziehbarkeit.",
+        lp2:"Disclosure wird sorgfältig und verantwortungsvoll gehandhabt.",
+        lp3:"Compliance und Sicherheit sind Design-Constraints.",
+
+        tagConf:"VERTRAULICH", tagDisclosure:"DISCLOSURE",
+        cfTitle:"Vertraulichkeits- & Disclosure-Policy",
+        cfDesc:"Detaillierte technische oder kommerzielle Informationen werden nur unter Vertraulichkeitsvereinbarungen geteilt.",
+        cf1:"Öffentlich: High-Level Positionierung, nicht-sensitive Summaries.",
+        cf2:"Privat: Detaillierte Briefs, technische Notes, kommerzielle Struktur.",
+        cf3:"NDA: vor Deep Disclosure, wenn erforderlich.",
+
+        tagIP:"IP", tagStrategy:"STRATEGIE",
+        ipTitle:"IP-Philosophie",
+        ipDesc:"Nicht alles gehört online. IP wird mit Timing, Evidenz und strategischem Disclosure gehandhabt.",
+        ip1:"Kern schützen: Public vs Protected sauber trennen.",
+        ip2:"Proof dokumentieren: Daten, Versionen, authored Material.",
+        ip3:"Richtiges Instrument: NDA, Copyright-Notice, ggf. Filings.",
+
+        tagFounder:"FOUNDER", tagStatement:"STATEMENT",
+        fsTitle:"Founder’s Letter",
+        fsDesc:"Ich baue hochwertige Konzepte mit disziplinierter Struktur. RA existiert, um Visionen in glaubwürdige Assets zu verwandeln — ohne Lärm, ohne Übertreibung und mit professionellen Grenzen.",
+
+        tagEthics:"ETHIK", tagBoundaries:"GRENZEN",
+        etTitle:"Ethik & Grenzen",
+        etDesc:"RA unterstützt keine rechtswidrige, schädliche, täuschende oder missbräuchliche Nutzung. Sicherheit und Verantwortung zählen.",
+        et1:"Keine Täuschung, keine erfundenen Partnerschaften.",
+        et2:"Kein Missbrauch für Schaden, Missbrauch-Überwachung oder Illegalität.",
+        et3:"Klarheit und Transparenz in der Kommunikation.",
+
+        tagMedia:"MEDIEN", tagPress:"PRESS",
+        mdTitle:"Medien & Presse-Readiness",
+        mdDesc:"Press Kit und offizielle Statements werden kontrolliert und brand-konsistent bereitgestellt.",
+        md1:"Press Kit: Coming soon (Logos, Kurzprofil, approved Wording).",
+        md2:"Offizielle Statements: nur über RA-Kanäle.",
+        md3:"Konsistenz: eine Narrative, Premium-Standard.",
+
+        tagContact:"KONTAKT", tagRules:"REGELN",
+        crTitle:"Kontaktregeln",
+        crDesc:"Nur E-Mail. Strukturierte Anfragen bevorzugt. Unaufgeforderte Anrufe werden nicht unterstützt.",
+        cr1:"E-Mail-only (kein Telefon).",
+        cr2:"Kontext: wer Sie sind, was Sie möchten, Timeline.",
+        cr3:"Wenn Deep Disclosure nötig: NDA zuerst.",
+        crBtn:"E-Mail senden",
+        crBack:"Zurück zur Startseite",
+
+        legal:"Hinweis: Diese Idee ist urheberrechtlich geschützt. Eine kommerzielle Nutzung oder Nachahmung ohne schriftliche Genehmigung ist untersagt."
+      },
+      en:{
+        brandSub:"Innovation Studio",
+        navHome:"Home", navProjects:"Projects", navCompany:"Company", navContact:"Contact",
+        ctaTop:"Contact",
+
+        h1:"RA — Company Profile",
+        h2:"A premium innovation entity with a structured operating model, confidentiality-first disclosure, and clear ethical boundaries.",
+
+        toc1:"Identity", toc2:"Operating Model", toc3:"Confidentiality", toc4:"IP Philosophy", toc5:"Ethics", toc6:"Media", toc7:"Contact Rules",
+
+        tagCompany:"COMPANY", tagIdentity:"IDENTITY",
+        idTitle:"Corporate Identity Statement",
+        idDesc:"RA is a concept-driven innovation entity focused on architecting high-value, scalable ideas designed for global markets.",
+        idA:"Positioning: premium, credible, globally oriented.",
+        idB:"Focus: clarity, feasibility, investor-ready packaging.",
+        idC:"Approach: confidentiality-first, compliance-aware.",
+
+        tagClarity:"CLARITY", tagScope:"SCOPE",
+        wiTitle:"What RA is / What RA is not",
+        wiDesc:"Clear boundaries protect time, focus, and professional standards.",
+        wiIs:"RA IS:",
+        wiIsText:"concept architect, innovation originator, IP-aware entity.",
+        wiNot:"RA IS NOT:",
+        wiNotText:"contract manufacturer, outsourcing agency, marketing shop.",
+
+        tagOps:"OPERATIONS", tagModel:"MODEL",
+        opTitle:"Operating Model",
+        opDesc:"A structured process designed to transform concepts into credible, scalable assets.",
+        op1:"Idea origination & problem framing",
+        op2:"Concept architecture & feasibility logic",
+        op3:"Validation pathway & milestone planning",
+        op4:"IP & legal framing (as applicable)",
+        op5:"Investor-ready packaging (decks, briefs, summaries)",
+
+        tagLegal:"LEGAL", tagEU:"EU",
+        lpTitle:"Legal Presence & Jurisdiction",
+        lpDesc:"RA is positioned with a compliance-first mindset aligned with Germany / EU standards.",
+        lp1:"Focus on professional documentation and traceability.",
+        lp2:"Disclosure handled carefully and responsibly.",
+        lp3:"Compliance and safety treated as design constraints.",
+
+        tagConf:"CONFIDENTIALITY", tagDisclosure:"DISCLOSURE",
+        cfTitle:"Confidentiality & Disclosure Policy",
+        cfDesc:"Detailed technical or commercial information is shared only under confidentiality agreements.",
+        cf1:"Public: high-level positioning, non-sensitive summaries.",
+        cf2:"Private: detailed briefs, technical notes, commercial structure.",
+        cf3:"NDA: used before deep disclosure when required.",
+
+        tagIP:"IP", tagStrategy:"STRATEGY",
+        ipTitle:"IP Philosophy",
+        ipDesc:"Not everything belongs online. IP is handled with timing, evidence, and strategic disclosure.",
+        ip1:"Protect the core: public vs protected.",
+        ip2:"Document proof: dates, versions, authored material.",
+        ip3:"Use the right instrument: NDA, notices, filings when applicable.",
+
+        tagFounder:"FOUNDER", tagStatement:"STATEMENT",
+        fsTitle:"Founder’s Letter",
+        fsDesc:"I build high-value concepts with disciplined structure. RA exists to turn vision into credible assets — without noise, without exaggeration, and with professional boundaries.",
+
+        tagEthics:"ETHICS", tagBoundaries:"BOUNDARIES",
+        etTitle:"Ethics & Boundaries",
+        etDesc:"RA does not support unlawful, harmful, deceptive, or abusive deployment. Safety and responsibility matter.",
+        et1:"No deceptive claims, no fabricated partnerships.",
+        et2:"No misuse for harm, surveillance abuse, or illegal activity.",
+        et3:"Clarity and transparency in communication.",
+
+        tagMedia:"MEDIA", tagPress:"PRESS",
+        mdTitle:"Media & Press Readiness",
+        mdDesc:"Press kit and official statements are provided in a controlled, brand-consistent format.",
+        md1:"Press kit: Coming soon (logos, short profile, approved wording).",
+        md2:"Official statements: released only through RA channels.",
+        md3:"Consistency: one narrative, premium standard.",
+
+        tagContact:"CONTACT", tagRules:"RULES",
+        crTitle:"Contact Rules",
+        crDesc:"Email only. Structured requests are preferred. Unsolicited calls are not supported.",
+        cr1:"Email-only communication (no phone).",
+        cr2:"Provide context: who you are, what you want, timeline.",
+        cr3:"If deep disclosure is needed: NDA first.",
+        crBtn:"Send Email",
+        crBack:"Back to Home",
+
+        legal:"Notice: This idea is protected by copyright. Commercial use or imitation without written permission is prohibited."
+      },
+      ar:{
+        brandSub:"استوديو ابتكار",
+        navHome:"الرئيسية", navProjects:"المشاريع", navCompany:"الشركة", navContact:"تواصل",
+        ctaTop:"تواصل",
+
+        h1:"رع — ملف الشركة",
+        h2:"كيان ابتكاري Premium بمنهج عمل واضح، وسياسة سرية أولًا، وحدود أخلاقية قوية.",
+
+        toc1:"الهوية", toc2:"منهج العمل", toc3:"السرية", toc4:"فلسفة الملكية", toc5:"الأخلاقيات", toc6:"الإعلام", toc7:"قواعد التواصل",
+
+        tagCompany:"الشركة", tagIdentity:"الهوية",
+        idTitle:"بيان الهوية المؤسسية",
+        idDesc:"رع كيان ابتكاري قائم على هندسة الأفكار عالية القيمة والقابلة للتوسع والموجهة للأسواق العالمية.",
+        idA:"التموضع: Premium، موثوق، عالمي.",
+        idB:"التركيز: وضوح، قابلية تنفيذ، تجهيز للمستثمر.",
+        idC:"المنهج: سرية أولًا ووعي بالامتثال.",
+
+        tagClarity:"وضوح", tagScope:"نطاق",
+        wiTitle:"ما هي رع / وما ليست رع",
+        wiDesc:"حدود واضحة تحمي وقتك وتركيزك ومعاييرك المهنية.",
+        wiIs:"رع هي:",
+        wiIsText:"هندسة مفاهيم، منشئ ابتكار، كيان واعٍ بالملكية الفكرية.",
+        wiNot:"رع ليست:",
+        wiNotText:"مصنع بالطلب، شركة Outsourcing، وكالة تسويق.",
+
+        tagOps:"تشغيل", tagModel:"منهج",
+        opTitle:"منهج التشغيل",
+        opDesc:"عملية منظمة لتحويل الفكرة إلى أصل قابل للتوسع وموثوق.",
+        op1:"توليد الفكرة وصياغة المشكلة",
+        op2:"هندسة المفهوم ومنطق قابلية التنفيذ",
+        op3:"مسار تحقق وتخطيط مراحل",
+        op4:"إطار قانوني/ملكية (عند الحاجة)",
+        op5:"تجهيز للمستثمر (Brief / Deck / Summary)",
+
+        tagLegal:"قانوني", tagEU:"EU",
+        lpTitle:"الحضور القانوني والولاية",
+        lpDesc:"تموضع رع بمنهج امتثال أولًا متوافق مع ألمانيا/الاتحاد الأوروبي.",
+        lp1:"تركيز على توثيق احترافي وقابل للتتبع.",
+        lp2:"إدارة الإفصاح بحذر ومسؤولية.",
+        lp3:"الامتثال والسلامة جزء من التصميم.",
+
+        tagConf:"سرية", tagDisclosure:"إفصاح",
+        cfTitle:"سياسة السرية والإفصاح",
+        cfDesc:"أي تفاصيل تقنية/تجارية عميقة يتم مشاركتها فقط تحت اتفاق سرية.",
+        cf1:"عام: عرض عالي المستوى وملخصات غير حساسة.",
+        cf2:"خاص: Briefs تفصيلية، ملاحظات تقنية، هيكلة تجارية.",
+        cf3:"NDA: قبل الإفصاح العميق عند الحاجة.",
+
+        tagIP:"ملكية", tagStrategy:"استراتيجية",
+        ipTitle:"فلسفة الملكية الفكرية",
+        ipDesc:"ليس كل شيء يُنشر. الملكية تُدار بتوقيت وإثبات وإفصاح استراتيجي.",
+        ip1:"حماية الجوهر: فصل العام عن المحمي.",
+        ip2:"توثيق الإثبات: تواريخ، نسخ، مواد مُؤلفة.",
+        ip3:"الأداة المناسبة: NDA + إشعار حقوق + تسجيلات عند اللزوم.",
+
+        tagFounder:"المؤسس", tagStatement:"رسالة",
+        fsTitle:"رسالة المؤسس",
+        fsDesc:"أبني أفكارًا عالية القيمة بمنهج منضبط. رع موجودة لتحويل الرؤية إلى أصول موثوقة — بدون ضوضاء وبدون مبالغة ومع حدود مهنية واضحة.",
+
+        tagEthics:"أخلاقيات", tagBoundaries:"حدود",
+        etTitle:"الأخلاقيات والحدود",
+        etDesc:"رع لا تدعم أي استخدام غير قانوني أو ضار أو مخادع أو مسيء. السلامة والمسؤولية أولوية.",
+        et1:"لا ادعاءات كاذبة ولا شراكات وهمية.",
+        et2:"لا دعم لأي إساءة أو ضرر أو استخدام غير قانوني.",
+        et3:"وضوح وشفافية في التواصل.",
+
+        tagMedia:"إعلام", tagPress:"صحافة",
+        mdTitle:"الجاهزية الإعلامية",
+        mdDesc:"Press Kit وبيانات رسمية تُقدم بطريقة مضبوطة ومتسقة مع هوية رع.",
+        md1:"Press Kit: قريبًا (شعارات، نبذة، صياغات معتمدة).",
+        md2:"بيانات رسمية: عبر قنوات رع فقط.",
+        md3:"ثبات: رواية واحدة بمعيار Premium.",
+
+        tagContact:"تواصل", tagRules:"قواعد",
+        crTitle:"قواعد التواصل",
+        crDesc:"التواصل بالبريد فقط. الطلبات المنظمة مفضلة. لا مكالمات عشوائية.",
+        cr1:"البريد الإلكتروني فقط (بدون رقم).",
+        cr2:"اذكر: من أنت، ماذا تريد، والوقت المتوقع.",
+        cr3:"لو مطلوب تفاصيل عميقة: NDA أولًا.",
+        crBtn:"إرسال بريد",
+        crBack:"العودة للرئيسية",
+
+        legal:"Hinweis: Diese Idee ist urheberrechtlich geschützt. Eine kommerzielle Nutzung oder Nachahmung ohne schriftliche Genehmigung ist untersagt."
+      }
+    };
+
+    const LANG_KEY="siteLang";
+    function setLang(lang){
+      localStorage.setItem(LANG_KEY, lang);
+      document.documentElement.lang = lang;
+      document.body.classList.toggle("rtl", lang==="ar");
+
+      ["DE","EN","AR"].forEach(k=>{
+        document.getElementById("btn"+k).classList.toggle("active", k.toLowerCase()===lang);
+      });
+
+      document.querySelectorAll("[data-i]").forEach(el=>{
+        const key = el.getAttribute("data-i");
+        el.textContent = (T[lang] && T[lang][key]) ? T[lang][key] : (T.de[key] || "");
+      });
+    }
+
+    document.getElementById("btnDE").addEventListener("click", ()=>setLang("de"));
+    document.getElementById("btnEN").addEventListener("click", ()=>setLang("en"));
+    document.getElementById("btnAR").addEventListener("click", ()=>setLang("ar"));
+
+    document.getElementById("ctaTop").addEventListener("click", ()=>{
+      document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+    });
+
+    setLang(localStorage.getItem(LANG_KEY) || "de");
+  </script>
+</body>
+</html>
