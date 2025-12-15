@@ -1,73 +1,163 @@
 <!doctype html>
-<html lang="en" data-lang="en">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>About • RA Innovation</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <div class="bg">
-    <div class="bg-city"></div>
-    <div class="bg-vignette"></div>
-    <canvas id="particles"></canvas>
-  </div>
+  <title>About — RA Innovation</title>
+  <meta name="description" content="About RA Innovation — who we are, what we build, and why it matters." />
 
-  <header class="top">
-    <div class="brand">
-      <div class="brand-frame glow-red">
-        <div class="brand-title" data-i18n="brand_title">RA INNOVATION</div>
-        <div class="brand-sub" data-i18n="brand_sub">ARCHITECTING TOMORROW'S REALITY</div>
+  <!-- ✅ نفس الملفات -->
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+
+<body>
+  <div class="fx"></div>
+  <div class="noise"></div>
+
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="./index.html">
+          <div class="logo"></div>
+          <div>
+            <strong>RA Innovation</strong>
+            <span>Architecting tomorrow’s reality</span>
+          </div>
+        </a>
+
+        <nav class="menu">
+          <a href="./index.html">Home</a>
+          <a href="./projects.html">Projects</a>
+          <a href="./about.html" class="active">About</a>
+          <a href="./contact.html">Contact</a>
+        </nav>
+
+        <div class="actions">
+          <div class="lang">
+            <div class="chip active">EN</div>
+            <div class="chip">DE</div>
+            <div class="chip">AR</div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <nav class="nav">
-      <a class="nav-link" href="index.html" data-i18n="nav_home">HOME</a>
-      <a class="nav-link" href="projects.html" data-i18n="nav_projects">PROJECTS</a>
-      <a class="nav-link active" href="about.html" data-i18n="nav_about">ABOUT</a>
-      <a class="nav-link" href="contact.html" data-i18n="nav_contact">CONTACT</a>
-
-      <div class="lang">
-        <button class="chip" data-langbtn="en">EN</button>
-        <button class="chip" data-langbtn="de">DE</button>
-        <button class="chip" data-langbtn="ar">AR</button>
-      </div>
-    </nav>
   </header>
 
-  <main class="wrap">
-    <section class="page-head tech-frame">
-      <div class="page-title glow-red" data-i18n="about_title">ABOUT</div>
-      <div class="page-sub" data-i18n="about_sub">
-        Who we are, what we build, and why it matters.
+  <!-- ===== Main ===== -->
+  <main class="container">
+    <section class="hero">
+      <div class="heroGrid">
+        <div>
+          <div class="kicker">
+            <span class="dot"></span>
+            <span>About Us</span>
+          </div>
+
+          <h1>Who We Are</h1>
+
+          <p class="sub">
+            RA Innovation is a future-driven innovation company focused on building
+            advanced solutions across technology, systems, and strategic development.
+          </p>
+
+          <p class="sub">
+            We don’t follow trends — we design foundations.  
+            Our work connects ideas, engineering, and execution into scalable realities.
+          </p>
+        </div>
+
+        <!-- يمين الصفحة – نفس شكل الهولو -->
+        <div class="holo">
+          <div class="holoInner">
+            <div class="badge">
+              <span class="pulse"></span>
+              Core Identity
+            </div>
+
+            <div class="holoCanvas">
+              <div class="tri">
+                <svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#00E5FF"/>
+                      <stop offset="1" stop-color="#FF3B3B"/>
+                    </linearGradient>
+                  </defs>
+
+                  <path d="M300 80 L470 340 L130 340 Z"
+                        fill="none"
+                        stroke="url(#g1)"
+                        stroke-width="3"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- 👇 هنا حط نص About من الكود القديم كما هو -->
     </section>
 
-    <section class="split">
-      <div class="panel tech-frame">
-        <h2 class="h2 glow-cyan" data-i18n="about_block1_title">Mission</h2>
-        <p class="p" data-i18n="about_block1_body">
-          Paste your exact old-code mission text here.
-        </p>
+    <!-- ===== Values ===== -->
+    <section>
+      <div class="sectionTitle">
+        <h2>Our Philosophy</h2>
+        <p>What defines RA Innovation</p>
       </div>
 
-      <div class="panel tech-frame">
-        <h2 class="h2 glow-cyan" data-i18n="about_block2_title">Approach</h2>
-        <p class="p" data-i18n="about_block2_body">
-          Paste your exact old-code approach text here.
-        </p>
+      <div class="cards">
+        <div class="card">
+          <div class="cardInner">
+            <h3>Vision First</h3>
+            <p>
+              Every project starts with a long-term vision,
+              not short-term execution.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardInner">
+            <h3>System Thinking</h3>
+            <p>
+              We build connected systems, not isolated products.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardInner">
+            <h3>Scalable Reality</h3>
+            <p>
+              Ideas must survive the real world — technically and economically.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardInner">
+            <h3>Independent Innovation</h3>
+            <p>
+              Original thinking without dependency on existing frameworks.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
-
-    <footer class="foot">
-      <div class="foot-left">© <span id="year"></span> <span data-i18n="brand_title">RA INNOVATION</span></div>
-      <div class="foot-right">
-        <span class="dot red"></span><span class="dot cyan"></span><span class="dot red"></span>
-      </div>
-    </footer>
   </main>
 
-  <script src="app.js"></script>
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="container foot">
+      <small>
+        © 2025 RA Innovation — All rights reserved.
+      </small>
+
+      <div class="legal">
+        Independent research, design, and innovation company.
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
