@@ -1,311 +1,133 @@
-<!DOCTYPE html>
-<html lang="de">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RA Innovation Company | Projects</title>
-
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family: Arial, Helvetica, sans-serif;
-      background:#070013;
-      color:#e6ebff;
-    }
-
-    /* background veil */
-    .veil{
-      position:fixed;
-      inset:0;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(138,43,226,.15), transparent 60%),
-        radial-gradient(circle at 80% 70%, rgba(0,255,255,.12), transparent 60%);
-      z-index:-1;
-    }
-
-    header{
-      background:rgba(10,0,25,.7);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-
-    .wrap{
-      max-width:1200px;
-      margin:auto;
-      padding:18px 20px;
-    }
-
-    .top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .brand img{
-      height:44px;
-      filter: drop-shadow(0 0 10px #7f5cff);
-    }
-
-    .brand .t{
-      font-size:22px;
-      font-weight:700;
-      background:linear-gradient(135deg,#8a2be2,#00ffff);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-
-    .brand .s{
-      font-size:13px;
-      color:#9aa6ff;
-      letter-spacing:.04em;
-    }
-
-    nav{
-      display:flex;
-      gap:26px;
-    }
-
-    nav a{
-      text-decoration:none;
-      color:#b9c4ff;
-      font-size:15px;
-      transition:.2s;
-    }
-
-    nav a:hover,
-    nav a.active{
-      color:#00ffff;
-      text-shadow:0 0 8px #00ffff;
-    }
-
-    .right{
-      display:flex;
-      align-items:center;
-      gap:14px;
-    }
-
-    .lang button{
-      background:none;
-      border:1px solid rgba(255,255,255,.2);
-      color:#dfe6ff;
-      padding:6px 10px;
-      cursor:pointer;
-    }
-
-    .lang button.active{
-      background:linear-gradient(135deg,#8a2be2,#00ffff);
-      color:#070013;
-      font-weight:700;
-    }
-
-    /* main */
-    main{
-      padding:80px 20px;
-      max-width:1200px;
-      margin:auto;
-    }
-
-    h1{
-      font-size:42px;
-      margin-bottom:18px;
-      background:linear-gradient(135deg,#8a2be2,#00ffff);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-
-    .lead{
-      max-width:720px;
-      color:#cbd4ff;
-      margin-bottom:60px;
-      line-height:1.6;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:28px;
-    }
-
-    .card{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.12);
-      padding:26px;
-      border-radius:16px;
-      transition:.25s;
-    }
-
-    .card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 0 25px rgba(0,255,255,.15),
-                 0 0 25px rgba(138,43,226,.15);
-    }
-
-    .card h3{
-      font-size:20px;
-      margin-bottom:12px;
-      background:linear-gradient(135deg,#8a2be2,#00ffff);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-
-    .card p{
-      font-size:14px;
-      color:#c5cfff;
-      line-height:1.6;
-    }
-
-    footer{
-      border-top:1px solid rgba(255,255,255,.08);
-      text-align:center;
-      padding:30px 20px;
-      color:#7f8cff;
-      font-size:13px;
-    }
-
-    body.rtl{
-      direction:rtl;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RA Innovation - Core Verticals</title>
+  <meta name="description" content="RA Innovation's core sectors in Health, Energy, and AI." />
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-<div class="veil"></div>
+  <div class="fx"></div>
+  <div class="noise"></div>
 
-<header>
-  <div class="wrap top">
-    <div class="brand">
-      <img src="RA_Logo.png" alt="RA Logo">
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="index.html">
+          <div class="logo" style="background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAAD9ABTVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0AdH2jmgAAAXuSURBVGhD7ZhPiFVVAIC/c1E3U8xS7WJ5p5SjXUu3bFE/gI+iS9F/QYtA9OolWqE1+xG9BEmS4kL/g+hKk/eLgkhRk4wz957v3PuOXc+Z7Jzzj33vP/9w7m/mDNnzkz+X4A3wBNgAXAN+AF8Ah4Cj8ASsAK8A24DF4ETwGpgB3AEfA+2AVuAxcAC4BZwGtgAXACuAWuAHcC1YAHwCrgV7AIuA+uA5cAC4AawA5hZ6340BfgI/Ab+B14AfwDHgYvAUuA7dYj830X+F8A7y373qq0z/9pQd/8D7wGvAZ+Ap8BP4DfgH8AZYCP9b7b9f5f8X4BHwBngZ+B34BfgG+AP8Aj4DPwAfgZ+AL8CfwN/ATeB71u+m6O+C/AfwD3j3x93q7d/u4z7r9tXbXfG/Ab7d+u71s2u+n9Xf7q3Z3vG/A35o1v/P9e97Y6nO+R8DP3fGfA/8/N9P325/3/j/AT7qjfsT/Fdv/P9T/Xvqf27d/yXg053xPx3y+f8P+Nn+/d/N+T/Ff3zG7wL8wBv3S/jfBv9gV/xP4O32z/8G3m/9z/9oB3A36k842Pz8n/91eDvvj590gHcjdT+g/b4/+XfD3fN++N8B8z/g/c0t97f/xO93//h/Qn/k1gG/Nzv+f783/f+u8F/hF8L/m/Y/f0r/n/Qn/m1gG/M3/9f4J/R/w30F/5NfD3f/L/Bf4J/R/037l98L/m/Y/f0r/n/Qn/m1gG/M3/9f4N/R/wX0F/5NcP/8v/9P/i/g70H/f8L/BP7h8v9P/r/A/wf8g8v/P/FfAP/k+39v/k/gH/y/bXn/1P7x/xXwH/4uN/7/1P/L/CPV/j+0j/mv0L+l2v/n/xXwP/n+33v/0f/L/CPV/j+0r/m313hT/i/w/9b/0/+v8L/h/xX/f8r/H/Jf7zC/zX/N/7/lv9/zX+d/w/4f8L/Jf8/xv8j/v8F/j/h/0P+Z8D/JvD3B/j/hP8P+P+E/w/4j9b9L/BvEP8P+G8Q/w34bxD/DfgvE/8P+P9vJ6y2/j8J/B8m/8e+v3D28j/d4vF/6v/hP/hf/Q9v3wN/xP/h/yX/xP/hf/Q/w34L/Nf6/+T/Dv4L/JcAv4Df4K/51H/Avwb8Af4rHP2V9oFfwB3iFk+lYVfAAAAAASUVORK5CYII=')"></div>
+          <div>
+            <strong data-i="brandTitle">RA Innovation</strong>
+            <span data-i="brandSub">Global innovation across every field</span>
+          </div>
+        </a>
+
+        <nav class="menu" aria-label="Main">
+          <a href="index.html" data-i="navHome">Home</a> 
+          <a href="about.html" data-i="navAbout">About Us</a> 
+          <a href="company.html" data-i="navCompany">Company</a> 
+          <a href="vision.html" data-i="navVision">Vision</a>
+          <a class="active" href="projects.html" data-i="navProjects">Projects</a>
+          <a href="reach.html" data-i="navReach">Capital & Reach</a>
+          <a href="contact.html" data-i="navContact">Contact</a>
+        </nav>
+
+        <div class="actions">
+          <div class="lang" title="Language">
+            <div class="chip active" data-lang="en">EN</div>
+            <div class="chip" data-lang="de">DE</div>
+            <div class="chip" data-lang="ar">AR</div>
+          </div>
+          <a class="cta" href="projects.html" data-i="ctaTop">Explore</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="projects">
+      <div class="sectionTitle">
+        <h2 data-i="projHeaderNew">CORE VERTICALS: REVOLUTIONIZING GLOBAL SECTORS</h2>
+        <p data-i="projSubNew">
+            Our initiatives are focused on creating proprietary, large-scale blueprints that redefine the future of critical global industries: Health, Energy, and Cognitive Systems.
+        </p>
+      </div>
+
+      <div class="cards">
+        <div class="card" onclick="alert('Viewing: Bio-Integration Systems')">
+          <div class="cardInner">
+            <div class="cardTop">
+              <div class="icon">🧬</div>
+              <div class="chev">→</div>
+            </div>
+            <h3 data-i="proj1TitleNew">ADVANCED BIO-INTEGRATION</h3>
+            <p data-i="proj1DescNew">
+              Engineering proprietary solutions in diagnostic precision and predictive health systems to extend human capability and longevity on a global scale.
+            </p>
+          </div>
+        </div>
+
+        <div class="card" onclick="alert('Viewing: Zero-Carbon Energy Grids')">
+          <div class="cardInner">
+            <div class="cardTop">
+              <div class="icon">💡</div>
+              <div class="chev">→</div>
+            </div>
+            <h3 data-i="proj2TitleNew">NEXT-GENERATION POWER CORE</h3>
+            <p data-i="proj2DescNew">
+              Developing new forms of highly efficient, decentralized energy generation capable of supporting expansive urban and industrial infrastructure reliably.
+            </p>
+          </div>
+        </div>
+
+        <div class="card" onclick="alert('Viewing: Autonomous AI Systems')">
+          <div class="cardInner">
+            <div class="cardTop">
+              <div class="icon">🧠</div>
+              <div class="chev">→</div>
+            </div>
+            <h3 data-i="proj3TitleNew">COGNITIVE SYSTEM ARCHITECTURES</h3>
+            <p data-i="proj3DescNew">
+              Building autonomous AI frameworks for complex decision-making and dynamic resource optimization across operational and strategic environments.
+            </p>
+          </div>
+        </div>
+
+        <div class="card" onclick="alert('Viewing: Quantum-Ready Infrastructure')">
+          <div class="cardInner">
+            <div class="cardTop">
+              <div class="icon">🛡️</div>
+              <div class="chev">→</div>
+            </div>
+            <h3 data-i="proj4TitleNew">QUANTUM INFRASTRUCTURE</h3>
+            <p data-i="proj4DescNew">
+              Focusing on the foundational infrastructure necessary for future technologies, including advanced security and resilient data sovereignty solutions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container foot">
       <div>
-        <div class="t">RA</div>
-        <div class="s" data-i="brandSub">Innovation Studio</div>
+        <a class="brand" href="index.html">
+          <div class="logo" style="background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAAD9ABTVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0AdH2jmgAAAXuSURBVGhD7ZhPiFVVAIC/c1E3U8xS7WJ5p5SjXUu3bFE/gI+iS9F/QYtA9OolWqE1+xG9BEmS4kL/g+hKk/eLgkhRk4wz957v3PuOXc+Z7Jzzj33vP/9w7m/mDNnzkz+X4A3wBNgAXAN+AF8Ah4Cj8ASsAK8A24DF4ETwGpgB3AEfA+2AVuAxcAC4BZwGtgAXACuAWuAHcC1YAHwCrgV7AIuA+uA5cAC4AawA5hZ6340BfgI/Ab+B14AfwDHgYvAUuA7dYj830X+F8A7y373qq0z/9pQd/8D7wGvAZ+Ap8BP4DfgH8AZYCP9b7b9f5f8X4BHwBngZ+B34BfgG+AP8Aj4DPwAfgZ+AL8CfwN/ATeB71u+m6O+C/AfwD3j3x93q7d/u4z7r9tXbXfG/Ab7d+u71s2u+n9Xf7q3Z3vG/A35o1v/P9e97Y6nO+R8DP3fGfA/8/N9P325/3/j/AT7qjfsT/Fdv/P9T/Xvqf27d/yXg053xPx3y+f8P+Nn+/d/N+T/Ff3zG7wL8wBv3S/jfBv9gV/xP4O32z/8G3m/9z/9oB3A36k842Pz8n/91eDvvj590gHcjdT+g/b4/+XfD3fN++N8B8z/g/c0t97f/xO93//h/Qn/k1gG/Nzv+f783/f+u8F/hF8L/m/Y/f0r/n/Qn/m1gG/M3/9f4J/R/w30F/5NfD3f/L/Bf4J/R/037l98L/m/Y/f0r/n/Qn/m1gG/M3/9f4N/R/wX0F/5NcP/8v/9P/i/g70H/f8L/BP7h8v9P/r/A/wf8g8v/P/FfAP/k+39v/k/gH/y/bXn/1P7x/xXwH/4uN/7/1P/L/CPV/j+0j/mv0L+l2v/n/xXwP/n+33v/0f/L/CPV/j+0r/m313hT/i/w/9b/0/+v8L/h/xX/f8r/H/Jf7zC/zX/N/7/lv9/zX+d/w/4f8L/Jf8/xv8j/v8F/j/h/0P+Z8D/JvD3B/j/hP8P+P+E/w/4j9b9L/BvEP8P+G8Q/w34bxD/DfgvE/8P+P9vJ6y2/j8J/B8m/8e+v3D28j/d4vF/6v/hP/hf/Q9v3wN/xP/h/yX/xP/hf/Q/w34L/Nf6/+T/Dv4L/JcAv4Df4K/51H/Avwb8Af4rHP2V9oFfwB3iFk+lYVfAAAAAASUVORK5CYII=')"></div>
+          <div>
+            <strong data-i="brandTitle">RA Innovation</strong>
+            <span data-i="brandSub">Global innovation across every field</span>
+          </div>
+        </a>
+        <small data-i="footerCopy">© 2025 RA Innovation. All Rights Reserved. </small>
       </div>
+      <p class="legal" data-i="legal">
+        IP Notice: All concepts, designs, and content are proprietary and protected by international copyright laws. Access to detailed blueprints is restricted to qualified partners.
+      </p>
     </div>
-
-    <nav>
-      <a href="index.html" data-i="navHome">Home</a>
-      <a href="projects.html" class="active" data-i="navProjects">Projects</a>
-      <a href="company.html" data-i="navCompany">Company</a>
-      <a href="#contact" data-i="navContact">Contact</a>
-    </nav>
-
-    <div class="right">
-      <div class="lang">
-        <button id="btnDE" class="active" onclick="setLang('de')">DE</button>
-        <button id="btnEN" onclick="setLang('en')">EN</button>
-        <button id="btnAR" onclick="setLang('ar')">AR</button>
-      </div>
-    </div>
-  </div>
-</header>
-
-<main>
-  <h1 data-i="title">Selected High-Value Projects</h1>
-  <p class="lead" data-i="lead">
-    A curated portfolio of advanced innovation concepts, designed for global relevance,
-    strategic licensing, and long-term impact.
-  </p>
-
-  <div class="grid">
-    <div class="card">
-      <h3>Silent Mind</h3>
-      <p data-i="p1">A medical-oriented smart vision system designed to assist patients and special-needs users.</p>
-    </div>
-
-    <div class="card">
-      <h3>FixMind</h3>
-      <p data-i="p2">An AI-assisted cognitive support platform focused on real-time guidance and decision aid.</p>
-    </div>
-
-    <div class="card">
-      <h3>IronWall AI</h3>
-      <p data-i="p3">A multi-layer intelligent protection system for data, systems, and digital infrastructure.</p>
-    </div>
-
-    <div class="card">
-      <h3>Pocket Wipe</h3>
-      <p data-i="p4">A practical everyday product concept designed for mass usability and sustainable production.</p>
-    </div>
-
-    <div class="card">
-      <h3>Silent Guardian</h3>
-      <p data-i="p5">A privacy-focused protection concept addressing modern digital surveillance risks.</p>
-    </div>
-  </div>
-</main>
-
-<footer>
-  <p data-i="legal">
-    All concepts presented are intellectual property of RA Innovation Company.
-    Unauthorized use or replication is prohibited.
-  </p>
-</footer>
-
-<script>
-const T={
-  de:{
-    brandSub:"Innovation Studio",
-    navHome:"Home",
-    navProjects:"Projects",
-    navCompany:"Company",
-    navContact:"Contact",
-    title:"Ausgewählte Hochwertige Projekte",
-    lead:"Eine kuratierte Auswahl fortschrittlicher Innovationskonzepte mit globaler Relevanz.",
-    p1:"Medizinisch orientiertes Smart-Vision-System zur Unterstützung von Patienten.",
-    p2:"KI-gestützte kognitive Assistenzplattform.",
-    p3:"Intelligentes mehrschichtiges Schutzsystem für digitale Infrastrukturen.",
-    p4:"Alltagsprodukt-Konzept für nachhaltige Massenanwendung.",
-    p5:"Datenschutz- und Sicherheitskonzept gegen moderne Überwachungsrisiken.",
-    legal:"Alle dargestellten Konzepte sind geistiges Eigentum der RA Innovation Company."
-  },
-  en:{
-    brandSub:"Innovation Studio",
-    navHome:"Home",
-    navProjects:"Projects",
-    navCompany:"Company",
-    navContact:"Contact",
-    title:"Selected High-Value Projects",
-    lead:"A curated portfolio of advanced innovation concepts with global relevance.",
-    p1:"Medical-oriented smart vision assistance system.",
-    p2:"AI-assisted cognitive support platform.",
-    p3:"Intelligent multi-layer digital protection system.",
-    p4:"Everyday product concept for sustainable mass use.",
-    p5:"Privacy and security concept against modern surveillance risks.",
-    legal:"All concepts are intellectual property of RA Innovation Company."
-  },
-  ar:{
-    brandSub:"استوديو ابتكار",
-    navHome:"الرئيسية",
-    navProjects:"المشاريع",
-    navCompany:"الشركة",
-    navContact:"تواصل",
-    title:"مشاريع عالية القيمة",
-    lead:"مجموعة مختارة من مفاهيم الابتكار المتقدمة ذات التأثير العالمي.",
-    p1:"نظام رؤية ذكي موجه للاستخدام الطبي.",
-    p2:"منصة دعم إدراكي مدعومة بالذكاء الاصطناعي.",
-    p3:"نظام حماية رقمي ذكي متعدد الطبقات.",
-    p4:"فكرة منتج يومي للاستخدام المستدام.",
-    p5:"مفهوم لحماية الخصوصية من مخاطر المراقبة الحديثة.",
-    legal:"جميع المفاهيم المعروضة ملكية فكرية لشركة RA."
-  }
-};
-
-function setLang(l){
-  document.body.classList.toggle("rtl",l==="ar");
-  document.documentElement.lang=l;
-  document.querySelectorAll(".lang button").forEach(b=>b.classList.remove("active"));
-  document.getElementById("btn"+l.toUpperCase()).classList.add("active");
-  document.querySelectorAll("[data-i]").forEach(e=>{
-    e.textContent=T[l][e.dataset.i];
-  });
-}
-</script>
-
+  </footer>
+  
+  <script src="app.js"></script>
 </body>
 </html>
