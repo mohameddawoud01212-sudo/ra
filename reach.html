@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RA Innovation — Capital & Reach</title>
+  <meta name="description" content="RA Innovation — Capital & Reach" />
+  <style>
+    :root{--bg0:#050510;--bg1:#07071a;--txt:rgba(255,255,255,.88);--muted:rgba(255,255,255,.62);--cyan:#00E5FF;--red:#FF3B3B;--shadow2:0 10px 30px rgba(0,0,0,.45);--radius:18px;}
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0;color:var(--txt);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,"Noto Sans","Helvetica Neue",sans-serif;overflow-x:hidden;
+      background:radial-gradient(1200px 700px at 30% 20%, rgba(0,229,255,.16), transparent 55%),
+      radial-gradient(900px 520px at 80% 25%, rgba(255,59,59,.14), transparent 60%),
+      radial-gradient(900px 700px at 60% 90%, rgba(255,45,85,.10), transparent 60%),
+      linear-gradient(180deg, var(--bg0), var(--bg1));}
+    .fx{pointer-events:none;position:fixed;inset:0;background:repeating-linear-gradient(to bottom, rgba(255,255,255,.035), rgba(255,255,255,.035) 1px, transparent 1px, transparent 4px);mix-blend-mode:overlay;opacity:.08;animation:drift 12s linear infinite;}
+    @keyframes drift{from{transform:translateY(0)}to{transform:translateY(16px)}}
+    .noise{pointer-events:none;position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");opacity:.05;mix-blend-mode:soft-light;}
+    .container{width:min(1180px,92vw);margin:0 auto;}
+    header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:linear-gradient(180deg, rgba(10,10,26,.75), rgba(10,10,26,.35));border-bottom:1px solid rgba(255,255,255,.08);}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:12px;}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+    .logo{width:38px;height:38px;border-radius:12px;background:radial-gradient(circle at 30% 30%, rgba(0,229,255,.45), transparent 55%),radial-gradient(circle at 75% 70%, rgba(255,59,59,.40), transparent 55%),linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.14);box-shadow:0 0 22px rgba(0,229,255,.18), 0 0 26px rgba(255,59,59,.12);position:relative;overflow:hidden;}
+    .logo:before{content:"";position:absolute;inset:-30%;background:conic-gradient(from 20deg, transparent, rgba(0,229,255,.35), transparent, rgba(255,59,59,.28), transparent);animation:spin 7s linear infinite;filter:blur(2px);opacity:.9;}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .brand strong{font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.92);}
+    .brand span{display:block;font-size:12px;color:var(--muted);letter-spacing:.05em;margin-top:2px;}
+    .menu{display:flex;align-items:center;gap:10px;}
+    .menu a{text-decoration:none;font-size:13px;color:rgba(255,255,255,.72);padding:10px 10px;border-radius:12px;border:1px solid transparent;}
+    .menu a:hover{color:rgba(255,255,255,.92);border-color:rgba(255,255,255,.10);background:rgba(255,255,255,.04);}
+    .menu a.active{color:rgba(255,255,255,.92);border-color:rgba(0,229,255,.25);background:linear-gradient(90deg, rgba(0,229,255,.10), rgba(255,59,59,.08));box-shadow:0 0 0 3px rgba(0,229,255,.06);}
+    .actions{display:flex;align-items:center;gap:10px;}
+    .lang{display:flex;gap:6px;align-items:center;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.04);padding:6px;border-radius:14px;}
+    .chip{cursor:pointer;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.03);color:rgba(255,255,255,.75);font-size:12px;padding:8px 10px;border-radius:12px;user-select:none;transition:.18s ease;}
+    .chip:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.18)}
+    .chip.active{color:white;border-color:rgba(0,229,255,.35);box-shadow:0 0 0 3px rgba(0,229,255,.08);background:linear-gradient(90deg, rgba(0,229,255,.14), rgba(255,59,59,.12));}
+    .cta{cursor:pointer;text-decoration:none;border-radius:14px;border:1px solid rgba(255,255,255,.12);padding:10px 12px;font-size:13px;color:rgba(255,255,255,.90);
+      background:linear-gradient(90deg, rgba(0,229,255,.18), rgba(255,59,59,.18), rgba(0,229,255,.10));box-shadow:0 0 22px rgba(0,229,255,.10), 0 0 22px rgba(255,59,59,.08);}
+    .page{padding:54px 0 10px;}
+    .kicker{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:rgba(255,255,255,.74);font-size:12px;letter-spacing:.10em;text-transform:uppercase;}
+    .dot{width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 30% 30%, var(--cyan), var(--red));box-shadow:0 0 16px rgba(0,229,255,.25), 0 0 18px rgba(255,59,59,.18);}
+    h1{margin:14px 0 10px;font-size:clamp(30px,4vw,44px);line-height:1.08;letter-spacing:.02em;text-transform:uppercase;
+      background:linear-gradient(90deg, rgba(255,255,255,.92), rgba(0,229,255,.85), rgba(255,59,59,.86), rgba(255,255,255,.88));-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .sub{color:var(--muted);font-size:15px;line-height:1.7;max-width:72ch;margin:0 0 18px;}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px;}
+    @media (max-width:980px){.grid{grid-template-columns:1fr}}
+    .card{position:relative;border-radius:var(--radius);border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));box-shadow:var(--shadow2);overflow:hidden;padding:16px;min-height:150px;}
+    .card:before{content:"";position:absolute;inset:-40%;background:radial-gradient(circle at 35% 35%, rgba(0,229,255,.20), transparent 55%),radial-gradient(circle at 75% 70%, rgba(255,59,59,.16), transparent 55%);filter:blur(10px);opacity:.75;z-index:0;}
+    .cardInner{position:relative;z-index:2}
+    .cardTop{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;}
+    .icon{width:44px;height:44px;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:radial-gradient(circle at 30% 30%, rgba(0,229,255,.28), transparent 55%),radial-gradient(circle at 75% 70%, rgba(255,59,59,.22), transparent 55%),rgba(255,255,255,.03);display:grid;place-items:center;font-weight:800;color:rgba(255,255,255,.9);box-shadow:0 0 18px rgba(0,229,255,.10), 0 0 18px rgba(255,59,59,.06);}
+    .chev{color:rgba(255,255,255,.45);font-weight:700;border:1px solid rgba(255,255,255,.10);border-radius:999px;padding:6px 10px;background:rgba(255,255,255,.03);}
+    .card h3{margin:0;font-size:14px;letter-spacing:.04em;color:rgba(255,255,255,.90);}
+    .card p{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.6;}
+    footer{padding:28px 0 42px;border-top:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.12);backdrop-filter:blur(10px);}
+    .foot{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+    .foot small{color:rgba(255,255,255,.50);line-height:1.7;}
+    .legal{color:rgba(255,255,255,.52);font-size:12px;max-width:72ch;padding:10px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.03);}
+    [dir="rtl"] .menu{flex-direction:row-reverse}
+  </style>
+</head>
+<body>
+  <div class="fx"></div><div class="noise"></div>
+
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="index.html"><div class="logo"></div><div><strong id="brandTitle">RA Innovation</strong><span id="brandSub">Global innovation across every field</span></div></a>
+        <nav class="menu">
+          <a href="vision.html" id="navVision">Vision</a>
+          <a href="projects.html" id="navProjects">Projects</a>
+          <a href="reach.html" class="active" id="navReach">Capital & Reach</a>
+          <a href="contact.html" id="navContact">Contact</a>
+        </nav>
+        <div class="actions">
+          <div class="lang">
+            <div class="chip active" data-lang="en">EN</div>
+            <div class="chip" data-lang="de">DE</div>
+            <div class="chip" data-lang="ar">AR</div>
+          </div>
+          <a class="cta" href="contact.html" id="ctaTop">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container page">
+    <div class="kicker"><span class="dot"></span> <span id="kicker">Capital & Reach</span></div>
+    <h1 id="pageTitle">Capital & Global Reach</h1>
+    <p class="sub" id="pageSub">Engaging with pioneering investors and expanding our global footprint.</p>
+
+    <div class="grid">
+      <div class="card"><div class="cardInner"><div class="cardTop"><div class="icon">1</div><div class="chev">›</div></div>
+        <h3 id="r1t">Investment Opportunities</h3>
+        <p id="r1d">We welcome inquiries from venture capitalists, institutional investors, and strategic partners interested in deep-tech.</p>
+      </div></div>
+
+      <div class="card"><div class="cardInner"><div class="cardTop"><div class="icon">2</div><div class="chev">›</div></div>
+        <h3 id="r2t">Comprehensive Project Dossiers</h3>
+        <p id="r2d">Access detailed pitch decks, executive summaries, technical roadmaps, and compliance documentation upon request.</p>
+      </div></div>
+
+      <div class="card"><div class="cardInner"><div class="cardTop"><div class="icon">3</div><div class="chev">›</div></div>
+        <h3 id="r3t">Connect with Our Team</h3>
+        <p id="r3d">Reach out via email to discuss potential collaborations or to receive our detailed project portfolio.</p>
+      </div></div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <small id="footLeft">© <span id="year"></span> RA Innovation. All rights reserved.</small>
+        <div class="legal" id="legal">Hinweis: Diese Idee ist urheberrechtlich geschützt. Eine kommerzielle Nutzung oder Nachahmung ohne schriftliche Genehmigung ist untersagt.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const chips = Array.from(document.querySelectorAll(".chip"));
+    const root = document.documentElement;
+
+    const copy = {
+      en:{dir:"ltr",brandTitle:"RA Innovation",brandSub:"Global innovation across every field",
+        navVision:"Vision",navProjects:"Projects",navReach:"Capital & Reach",navContact:"Contact",ctaTop:"Contact",
+        kicker:"Capital & Reach",pageTitle:"Capital & Global Reach",pageSub:"Engaging with pioneering investors and expanding our global footprint.",
+        r1t:"Investment Opportunities",r1d:"We welcome inquiries from venture capitalists, institutional investors, and strategic partners interested in deep-tech.",
+        r2t:"Comprehensive Project Dossiers",r2d:"Access detailed pitch decks, executive summaries, technical roadmaps, and compliance documentation upon request.",
+        r3t:"Connect with Our Team",r3d:"Reach out via email to discuss potential collaborations or to receive our detailed project portfolio.",
+        footLeft:`© ${new Date().getFullYear()} RA Innovation. All rights reserved.`,
+        legal:"Hinweis: Diese Idee ist urheberrechtlich geschützt. Eine kommerzielle Nutzung oder Nachahmung ohne schriftliche Genehmigung ist untersagt."
+      },
+      de:{dir:"ltr",brandTitle:"RA Innovation",brandSub:"Globale Innovation in jedem Bereich",
+        navVision:"Vision",navProjects:"Projekte",navReach:"Kapital & Reichweite",navContact:"Kontakt",ctaTop:"Kontakt",
+        kicker:"Kapital & Reichweite",pageTitle:"Kapital & Globale Reichweite",pageSub:"Engagieren mit wegweisenden Investoren und Ausbau unserer globalen Präsenz.",
+        r1t:"Investitionsmöglichkeiten",r1d:"Wir begrüßen Anfragen von Risikokapitalgebern, institutionellen Investoren und strategischen Partnern, die an Deep-Tech interessiert sind.",
+        r2t:"Umfassende Projektdossiers",r2d:"Auf Anfrage Zugriff auf detaillierte Pitch Decks, Executive Summaries, technische Roadmaps und Compliance-Dokumente.",
+        r3t:"Kontaktieren Sie unser Team",r3d:"Kontaktieren Sie uns per E-Mail, um mögliche Kooperationen zu besprechen oder unser detailliertes Projektportfolio zu erhalten.",
+        footLeft:`© ${new Date().getFullYear()} RA Innovation. Alle Rechte vorbehalten.`,
+        legal:"Hinweis: Diese Idee ist urheberrechtlich geschützt. Eine kommerzielle Nutzung oder Nachahmung ohne schriftliche Genehmigung ist untersagt."
+      },
+      ar:{dir:"rtl",brandTitle:"RA Innovation",brandSub:"ابتكار عالمي في كل المجالات",
+        navVision:"الرؤية",navProjects:"المشاريع",navReach:"رأس المال والانتشار",navContact:"تواصل",ctaTop:"تواصل",
+        kicker:"رأس المال والانتشار",pageTitle:"رأس المال والنطاق العالمي",pageSub:"التفاعل مع المستثمرين الرواد وتوسيع بصمتنا العالمية.",
+        r1t:"فرص الاستثمار",r1d:"نرحب بالاستفسارات من رؤوس الأموال المغامرة والمستثمرين المؤسسيين والشركاء الاستراتيجيين المهتمين بالتقنية العميقة.",
+        r2t:"ملفات مشاريع شاملة",r2d:"الوصول إلى عروض تقديمية مفصلة، وملخصات تنفيذية، وخرائط طريق فنية، ووثائق الامتثال عند الطلب.",
+        r3t:"تواصل مع فريقنا",r3d:"تواصل معنا عبر البريد الإلكتروني لمناقشة التعاون المحتمل أو للحصول على محفظة مشاريعنا المفصلة.",
+        footLeft:`© ${new Date().getFullYear()} RA Innovation. جميع الحقوق محفوظة.`,
+        legal:"Hinweis: Diese Idee ist urheberrechtlich geschützt. Eine kommerzielle Nutzung oder Nachahmung ohne schriftliche Genehmigung ist untersagt."
+      }
+    };
+
+    function applyLang(lang){
+      const d = copy[lang]; if(!d) return;
+      root.lang = (lang==="ar") ? "ar" : "en";
+      root.dir = d.dir;
+      for(const [k,v] of Object.entries(d)){
+        const el = document.getElementById(k);
+        if(el) el.textContent = v;
+      }
+      chips.forEach(c=>c.classList.toggle("active", c.dataset.lang===lang));
+      localStorage.setItem("ra_lang", lang);
+    }
+    chips.forEach(ch=>ch.addEventListener("click", ()=>applyLang(ch.dataset.lang)));
+    applyLang(localStorage.getItem("ra_lang") || "en");
+  </script>
+</body>
+</html>
