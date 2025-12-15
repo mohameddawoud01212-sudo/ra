@@ -1,545 +1,141 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>RA</title>
-  <meta name="description" content="RA — Premium Innovation Studio. DE/EN/AR." />
-  <meta name="theme-color" content="#080018" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --bg:#080018;
-      --text:#e0eaff;
-      --muted:rgba(224,234,255,.70);
-      --muted2:rgba(224,234,255,.55);
-
-      --a1:#8A2BE2;
-      --a2:#00FFFF;
-      --grad:linear-gradient(135deg,var(--a1),var(--a2));
-
-      --card:rgba(255,255,255,.06);
-      --line:rgba(255,255,255,.12);
-      --shadow:0 22px 80px rgba(0,0,0,.55);
-      --shadow2:0 12px 40px rgba(0,0,0,.35);
-
-      --r:18px;
-      --max:1160px;
-
-      /* ✅ تحكم في حجم/وضوح الشعار بالخلفية */
-      --logo-size: 125vmax;   /* كبر/صغّر: 110vmax / 150vmax */
-      --logo-opacity: .12;    /* وضوح: .08 إلى .16 */
-    }
-
-    *{box-sizing:border-box;}
-    html,body{height:100%;}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--text);
-      background:var(--bg);
-      overflow-x:hidden;
-    }
-
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      z-index:-3;
-      pointer-events:none;
-      background:
-        radial-gradient(1200px 700px at 18% 15%, rgba(138,43,226,.22), transparent 60%),
-        radial-gradient(1000px 650px at 88% 25%, rgba(0,255,255,.14), transparent 55%),
-        radial-gradient(900px 650px at 50% 110%, rgba(138,43,226,.10), transparent 55%),
-        linear-gradient(180deg, #070013 0%, #09001c 55%, #05000e 100%);
-    }
-
-    /* ✅ الشعار الكبير على الصفحة كلها */
-    body::after{
-      content:"";
-      position:fixed;
-      inset:-12vh -12vw;
-      z-index:-2;
-      pointer-events:none;
-
-      background-image: url("RA_Logo.png");
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: var(--logo-size);
-
-      opacity: var(--logo-opacity);
-      filter: blur(.15px) saturate(1.05);
-      mix-blend-mode: screen;
-    }
-
-    .veil{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      pointer-events:none;
-      background: radial-gradient(900px 600px at 50% 35%, rgba(0,0,0,.18), rgba(0,0,0,.46));
-    }
-
-    .wrap{
-      width:min(var(--max), calc(100% - 40px));
-      margin:0 auto;
-    }
-
-    header{
-      position:sticky;
-      top:0;
-      z-index:50;
-      backdrop-filter: blur(14px);
-      background: rgba(8,0,24,.70);
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding:14px 0;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      user-select:none;
-    }
-    .brand img{
-      width:40px;height:40px;object-fit:contain;
-      filter: drop-shadow(0 0 14px rgba(0,255,255,.18));
-    }
-    .brand .t{
-      font-weight:900;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      font-size:13px;
-      background:var(--grad);
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-    }
-    .brand .s{
-      margin-top:6px;
-      font-size:12px;
-      color:var(--muted2);
-      font-weight:700;
-      letter-spacing:.02em;
-    }
-
-    nav{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      color:var(--muted);
-      font-size:13px;
-      font-weight:800;
-      letter-spacing:.02em;
-    }
-    nav a{
-      color:inherit;
-      text-decoration:none;
-      opacity:.88;
-      padding:8px 10px;
-      border-radius:999px;
-      transition:.2s ease;
-      border:1px solid transparent;
-    }
-    nav a:hover{
-      opacity:1;
-      background:rgba(255,255,255,.06);
-      border-color: rgba(255,255,255,.10);
-      color:var(--text);
-    }
-    nav a.active{
-      opacity:1;
-      border-color: rgba(255,255,255,.14);
-      background: rgba(255,255,255,.05);
-      color:var(--text);
-    }
-
-    .right{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-
-    .lang{
-      display:flex;
-      gap:4px;
-      padding:4px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-    }
-    .lang button{
-      border:0;
-      background:transparent;
-      color:var(--muted);
-      padding:8px 10px;
-      border-radius:999px;
-      cursor:pointer;
-      font-weight:900;
-      font-size:12px;
-      letter-spacing:.08em;
-      min-width:46px;
-      transition:.2s ease;
-    }
-    .lang button:hover{ color:var(--text); }
-    .lang button.active{
-      background: rgba(255,255,255,.14);
-      color: var(--text);
-    }
-
-    .cta{
-      border:1px solid rgba(255,255,255,.16);
-      background: var(--grad);
-      color:#070013;
-      padding:10px 14px;
-      border-radius:999px;
-      font-weight:900;
-      cursor:pointer;
-      box-shadow: 0 18px 50px rgba(138,43,226,.14);
-      transition:.2s ease;
-      white-space:nowrap;
-    }
-    .cta:hover{ transform: translateY(-1px); filter: brightness(1.06); }
-
-    .hero{
-      padding: 84px 0 28px;
-      text-align:left;
-    }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-      color: var(--muted);
-      font-size:13px;
-      font-weight:800;
-    }
-    .dot{
-      width:10px;height:10px;border-radius:50%;
-      background:var(--grad);
-      box-shadow: 0 0 24px rgba(0,255,255,.18);
-    }
-    h1{
-      margin:18px 0 12px;
-      font-size: clamp(38px, 5vw, 64px);
-      line-height:1.02;
-      letter-spacing:-.03em;
-      font-weight:900;
-    }
-    .gradText{
-      background: linear-gradient(90deg, #ffffff, rgba(199,214,255,1), rgba(0,255,255,1));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-    }
-    .lead{
-      margin:0;
-      color:var(--muted);
-      font-size:16px;
-      line-height:1.75;
-      max-width: 68ch;
-    }
-    .heroBtns{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top: 22px;
-    }
-    .btn{
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color:var(--text);
-      font-weight:900;
-      cursor:pointer;
-      transition:.2s ease;
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.22); }
-    .btn.primary{
-      background: var(--grad);
-      color:#070013;
-      border-color: rgba(255,255,255,.18);
-      box-shadow: 0 18px 50px rgba(0,255,255,.10);
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 14px;
-      margin-top: 26px;
-    }
-    .card{
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-      border-radius: 22px;
-      padding:16px;
-      min-height: 150px;
-      box-shadow: var(--shadow2);
-      transition: .25s ease;
-      position:relative;
-      overflow:hidden;
-    }
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:-90px;
-      background:var(--grad);
-      opacity:.05;
-      filter: blur(65px);
-      pointer-events:none;
-    }
-    .card:hover{
-      transform: translateY(-2px);
-      border-color: rgba(255,255,255,.18);
-      background: rgba(255,255,255,.06);
-    }
-    .card b{ display:block; font-size:16px; margin-bottom:8px; font-weight:900; }
-    .card p{ margin:0; color:var(--muted); font-size:14px; line-height:1.65; }
-
-    section{ padding: 28px 0; }
-
-    .contact{
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      border-radius: 22px;
-      padding:18px;
-      box-shadow: var(--shadow2);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-    .contact .left{ max-width: 70ch; }
-    .contact .left h3{ margin:0 0 8px; font-size:18px; font-weight:900; }
-    .contact .left p{ margin:0; color:var(--muted); line-height:1.7; font-size:14px; }
-    .contact .email{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
-    .contact .email a{
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      font-weight:900;
-      letter-spacing:.01em;
-      text-decoration:none;
-      color:var(--text);
-    }
-
-    footer{
-      margin:26px 0 40px;
-      padding-top:18px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      color: var(--muted2);
-      font-size:12.5px;
-      line-height:1.6;
-    }
-
-    /* RTL */
-    body.rtl{ direction:rtl; }
-    body.rtl .top{ flex-direction: row-reverse; }
-    body.rtl nav{ flex-direction: row-reverse; }
-    body.rtl .right{ flex-direction: row-reverse; }
-    body.rtl .contact{ flex-direction: row-reverse; }
-    body.rtl .brand{ direction:ltr; }
-
-    @media (max-width: 980px){
-      nav{ display:none; }
-      .grid{ grid-template-columns: 1fr; }
-      .hero{ padding:72px 0 20px; }
-      :root{ --logo-size: 150vmax; }
-    }
-  </style>
+  <title>RA Innovation - Home</title>
+  <meta name="description" content="RA Innovation — Global Innovation Across Every Field." />
+  <link rel="stylesheet" href="styles.css"> 
 </head>
 
 <body>
-  <div class="veil"></div>
+  <div class="fx"></div>
+  <div class="noise"></div>
 
   <header>
-    <div class="wrap">
-      <div class="top">
-        <div class="brand">
-          <img src="RA_Logo.png" alt="RA Logo">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="index.html">
+          <div class="logo" style="background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAAD9ABTVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0AdH2jmgAAAXuSURBVGhD7ZhPiFVVAIC/c1E3U8xS7WJ5p5SjXUu3bFE/gI+iS9F/QYtA9OolWqE1+xG9BEmS4kL/g+hKk/eLgkhRk4wz957v3PuOXc+Z7Jzzj33vP/9w7m/mDNnzkz+X4A3wBNgAXAN+AF8Ah4Cj8ASsAK8A24DF4ETwGpgB3AEfA+2AVuAxcAC4BZwGtgAXACuAWuAHcC1YAHwCrgV7AIuA+uA5cAC4AawA5hZ6340BfgI/Ab+B14AfwDHgYvAUuA7dYj830X+F8A7y373qq0z/9pQd/8D7wGvAZ+Ap8BP4DfgH8AZYCP9b7b9f5f8X4BHwBngZ+B34BfgG+AP8Aj4DPwAfgZ+AL8CfwN/ATeB71u+m6O+C/AfwD3j3x93q7d/u4z7r9tXbXfG/Ab7d+u71s2u+n9Xf7q3Z3vG/A35o1v/P9e97Y6nO+R8DP3fGfA/8/N9P325/3/j/AT7qjfsT/Fdv/P9T/Xvqf27d/yXg053xPx3y+f8P+Nn+/d/N+T/Ff3zG7wL8wBv3S/jfBv9gV/xP4O32z/8G3m/9z/9oB3A36k842Pz8n/91eDvvj590gHcjdT+g/b4/+XfD3fN++N8B8z/g/c0t97f/xO93//h/Qn/k1gG/Nzv+f783/f+u8F/hF8L/m/Y/f0r/n/Qn/m1gG/M3/9f4J/R/w30F/5NfD3f/L/Bf4J/R/037l98L/m/Y/f0r/n/Qn/m1gG/M3/9f4N/R/wX0F/5NcP/8v/9P/i/g70H/f8L/BP7h8v9P/r/A/wf8g8v/P/FfAP/k+39v/k/gH/y/bXn/1P7x/xXwH/4uN/7/1P/L/CPV/j+0j/mv0L+l2v/n/xXwP/n+33v/0f/L/CPV/j+0r/m313hT/i/w/9b/0/+v8L/h/xX/f8r/H/Jf7zC/zX/N/7/lv9/zX+d/w/4f8L/Jf8/xv8j/v8F/j/h/0P+Z8D/JvD3B/j/hP8P+P+E/w/4j9b9L/BvEP8P+G8Q/w34bxD/DfgvE/8P+P9vJ6y2/j8J/B8m/8e+v3D28j/d4vF/6v/hP/hf/Q9v3wN/xP/h/yX/xP/hf/Q/w34L/Nf6/+T/Dv4L/JcAv4Df4K/51H/Avwb8Af4rHP2V9oFfwB3iFk+lYVfAAAAAASUVORK5CYII=')"></div>
           <div>
-            <div class="t">RA</div>
-            <div class="s" data-i="brandSub">Innovation Studio</div>
+            <strong data-i="brandTitle">RA Innovation</strong>
+            <span data-i="brandSub">Global innovation across every field</span>
           </div>
-        </div>
+        </a>
 
-        <nav>
-          <a href="index.html" class="active" data-i="navHome">Home</a>
+        <nav class="menu" aria-label="Main">
+          <a class="active" href="index.html" data-i="navHome">Home</a> 
+          <a href="about.html" data-i="navAbout">About Us</a> 
+          <a href="company.html" data-i="navCompany">Company</a> 
+          <a href="vision.html" data-i="navVision">Vision</a>
           <a href="projects.html" data-i="navProjects">Projects</a>
-          <a href="#contact" data-i="navContact">Contact</a>
+          <a href="reach.html" data-i="navReach">Capital & Reach</a>
+          <a href="contact.html" data-i="navContact">Contact</a>
         </nav>
 
-        <div class="right">
-          <div class="lang">
-            <button id="btnDE" type="button" class="active">DE</button>
-            <button id="btnEN" type="button">EN</button>
-            <button id="btnAR" type="button">AR</button>
+        <div class="actions">
+          <div class="lang" title="Language">
+            <div class="chip active" data-lang="en">EN</div>
+            <div class="chip" data-lang="de">DE</div>
+            <div class="chip" data-lang="ar">AR</div>
           </div>
-          <button class="cta" id="ctaTop" type="button" data-i="ctaTop">Kontakt</button>
+          <a class="cta" href="projects.html" data-i="ctaTop">Explore</a>
         </div>
       </div>
     </div>
   </header>
 
-  <main class="wrap">
-    <div class="hero">
-      <div class="pill">
-        <span class="dot"></span>
-        <span data-i="pill">Premium Concepts • Credible Positioning</span>
+  <main id="top" class="container">
+    <section class="hero">
+      <div class="heroGrid">
+        <div>
+          <div class="kicker"><span class="dot"></span> <span data-i="kicker">Innovation Engine</span></div>
+          <h1 data-i="heroTitle">Revolutionary Tech Blueprints</h1>
+          <p class="sub" data-i="heroSubtitle">
+            Global innovation across every field — building real solutions with bold ideas, smart systems, and scalable execution.
+          </p>
+
+          <div class="heroBtns">
+            <a class="btn primary" href="projects.html" data-i="btnPrimary">Start Exploring</a>
+            <a class="btn" href="contact.html" data-i="btnSecondary">Contact</a>
+          </div>
+        </div>
+
+        <div class="holo" aria-label="Hologram">
+          <div class="holoInner">
+            <div class="holoTop">
+              <div class="badge"><span class="pulse"></span> <span data-i="holoBadge">LIVE SYSTEM OVERVIEW</span></div>
+              <div class="badge" data-i="holoTag">NEON CORE</div>
+            </div>
+
+            <div class="holoCanvas">
+              <div class="floatingPanels">
+                <div class="panel p1"><div class="pinner" data-i="panel1">DATA FLOW<div class="line"></div></div></div>
+                <div class="panel p2"><div class="pinner" data-i="panel2">SECURITY<div class="line"></div></div></div>
+                <div class="panel p3"><div class="pinner" data-i="panel3">VISION<div class="line"></div></div></div>
+                <div class="panel p4"><div class="pinner" data-i="panel4">GROWTH<div class="line"></div></div></div>
+              </div>
+
+              <div class="tri">
+                <svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hologram Triangle">
+                  <defs>
+                    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#00E5FF" stop-opacity=".85"/>
+                      <stop offset="1" stop-color="#FF3B3B" stop-opacity=".85"/>
+                    </linearGradient>
+                    <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#FF2D55" stop-opacity=".65"/>
+                      <stop offset="1" stop-color="#2CFBFF" stop-opacity=".65"/>
+                    </linearGradient>
+                    <filter id="glow">
+                      <feGaussianBlur stdDeviation="3" result="b"/>
+                      <feMerge>
+                        <feMergeNode in="b"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                  </defs>
+
+                  <rect x="40" y="30" width="520" height="360" rx="26"
+                        fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.12)"/>
+
+                  <path d="M300 80 L470 340 L130 340 Z" fill="rgba(0,0,0,.08)" stroke="url(#g1)" stroke-width="3" filter="url(#glow)"/>
+                  <path d="M300 110 L440 330 L160 330 Z" fill="rgba(0,0,0,.10)" stroke="url(#g2)" stroke-width="2" opacity=".9"/>
+
+                  <circle cx="300" cy="80" r="4" fill="#2CFBFF" filter="url(#glow)"/>
+                  <circle cx="470" cy="340" r="4" fill="#FF2D55" filter="url(#glow)"/>
+                  <circle cx="130" cy="340" r="4" fill="#2CFBFF" filter="url(#glow)"/>
+
+                  <circle cx="210" cy="220" r="3" fill="#FF3B3B" filter="url(#glow)"/>
+                  <circle cx="390" cy="220" r="3" fill="#00E5FF" filter="url(#glow)"/>
+                  <line x1="210" y1="220" x2="390" y2="220" stroke="url(#g1)" stroke-width="1.5" opacity=".6"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <h1><span class="gradText" data-i="heroTitle">RA — High-Value Innovation</span></h1>
-      <p class="lead" data-i="heroLead">واجهة Premium لأفكارك.</p>
-
-      <div class="heroBtns">
-        <a class="btn primary" href="projects.html" data-i="btnGoProjects">Open Projects</a>
-        <button class="btn" id="btnIP" type="button" data-i="btnIP">IP Notice</button>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <b data-i="c1t">Premium Presentation</b>
-          <p data-i="c1d">Elegant structure for investors and partners.</p>
-        </div>
-        <div class="card">
-          <b data-i="c2t">Multilingual</b>
-          <p data-i="c2d">German / English / Arabic with RTL.</p>
-        </div>
-        <div class="card">
-          <b data-i="c3t">Professional Identity</b>
-          <p data-i="c3d">A clean brand look built around your logo.</p>
-        </div>
-      </div>
-    </div>
-
-    <section id="contact">
-      <div class="contact">
-        <div class="left">
-          <h3 data-i="ctTitle">Open for serious discussions</h3>
-          <p data-i="ctText">Email only (no phone). Details can be shared upon request.</p>
-        </div>
-        <div class="email">
-          <a href="mailto:dawoudmohamed090@gmail.com">dawoudmohamed090@gmail.com</a>
-          <button class="btn primary" id="btnMail" type="button" data-i="ctBtn">Send Email</button>
-        </div>
-      </div>
-
-      <footer>
-        <div data-i="legal">Hinweis: Diese Idee ist urheberrechtlich geschützt. Eine kommerzielle Nutzung oder Nachahmung ohne schriftliche Genehmigung ist untersagt.</div>
-        <div style="margin-top:10px;color:rgba(224,234,255,.35)">© <span id="y"></span> RA</div>
-      </footer>
     </section>
   </main>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+  <footer id="contact">
+    <div class="container foot">
+      <div>
+        <a class="brand" href="index.html">
+          <div class="logo" style="background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAAD9ABTVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0AdH2jmgAAAXuSURBVGhD7ZhPiFVVAIC/c1E3U8xS7WJ5p5SjXUu3bFE/gI+iS9F/QYtA9OolWqE1+xG9BEmS4kL/g+hKk/eLgkhRk4wz957v3PuOXc+Z7Jzzj33vP/9w7m/mDNnzkz+X4A3wBNgAXAN+AF8Ah4Cj8ASsAK8A24DF4ETwGpgB3AEfA+2AVuAxcAC4BZwGtgAXACuAWuAHcC1YAHwCrgV7AIuA+uA5cAC4AawA5hZ6340BfgI/Ab+B14AfwDHgYvAUuA7dYj830X+F8A7y373qq0z/9pQd/8D7wGvAZ+Ap8BP4DfgH8AZYCP9b7b9f5f8X4BHwBngZ+B34BfgG+AP8Aj4DPwAfgZ+AL8CfwN/ATeB71u+m6O+C/AfwD3j3x93q7d/u4z7r9tXbXfG/Ab7d+u71s2u+n9Xf7q3Z3vG/A35o1v/P9e97Y6nO+R8DP3fGfA/8/N9P325/3/j/AT7qjfsT/Fdv/P9T/Xvqf27d/yXg053xPx3y+f8P+Nn+/d/N+T/Ff3zG7wL8wBv3S/jfBv9gV/xP4O32z/8G3m/9z/9oB3A36k842Pz8n/91eDvvj590gHcjdT+g/b4/+XfD3fN++N8B8z/g/c0t97f/xO93//h/Qn/k1gG/Nzv+f783/f+u8F/hF8L/m/Y/f0r/n/Qn/m1gG/M3/9f4J/R/w30F/5NfD3f/L/Bf4J/R/037l98L/m/Y/f0r/n/Qn/m1gG/M3/9f4N/R/wX0F/5NcP/8v/9P/i/g70H/f8L/BP7h8v9P/r/A/wf8g8v/P/FfAP/k+39v/k/gH/y/bXn/1P7x/xXwH/4uN/7/1P/L/CPV/j+0j/mv0L+l2v/n/xXwP/n+33v/0f/L/CPV/j+0r/m313hT/i/w/9b/0/+v8L/h/xX/f8r/H/Jf7zC/zX/N/7/lv9/zX+d/w/4f8L/Jf8/xv8j/v8F/j/h/0P+Z8D/JvD3B/j/hP8P+P+E/w/4j9b9L/BvEP8P+G8Q/w34bxD/DfgvE/8P+P9vJ6y2/j8J/B8m/8e+v3D28j/d4vF/6v/hP/hf/Q9v3wN/xP/h/yX/xP/hf/Q/w34L/Nf6/+T/Dv4L/JcAv4Df4K/51H/Avwb8Af4rHP2V9oFfwB3iFk+lYVfAAAAAASUVORK5CYII=')"></div>
+          <div>
+            <strong data-i="brandTitle">RA Innovation</strong>
+            <span data-i="brandSub">Global innovation across every field</span>
+          </div>
+        </a>
+        <small data-i="footerCopy">© 2025 RA Innovation. All Rights Reserved. </small>
+      </div>
+      <p class="legal" data-i="legal">
+        IP Notice: All concepts, designs, and content are proprietary and protected by international copyright laws. Access to detailed blueprints is restricted to qualified partners.
+      </p>
+    </div>
+  </footer>
 
-    const T = {
-      de:{
-        brandSub:"Innovation Studio",
-        navHome:"Start", navProjects:"Projekte", navContact:"Kontakt",
-        ctaTop:"Kontakt",
-        pill:"Premium Konzepte • Glaubwürdige Positionierung",
-        heroTitle:"RA — High-Value Innovation",
-        heroLead:"Eine Premium-Präsentation für Ihre Ideen.",
-        btnGoProjects:"Projekte öffnen",
-        btnIP:"IP-Hinweis",
-        c1t:"Premium Präsentation", c1d:"Elegante Struktur für Investoren und Partner.",
-        c2t:"Mehrsprachig", c2d:"Deutsch / Englisch / Arabisch mit RTL.",
-        c3t:"Professionelle Identität", c3d:"Sauberer Brand-Look basierend auf Ihrem Logo.",
-        ctTitle:"Offen für seriöse Gespräche",
-        ctText:"Nur E-Mail (kein Telefon). Details auf Anfrage.",
-        ctBtn:"E-Mail senden",
-        legal:"Hinweis: Diese Idee ist urheberrechtlich geschützt. Eine kommerzielle Nutzung oder Nachahmung ohne schriftliche Genehmigung ist untersagt."
-      },
-      en:{
-        brandSub:"Innovation Studio",
-        navHome:"Home", navProjects:"Projects", navContact:"Contact",
-        ctaTop:"Contact",
-        pill:"Premium Concepts • Credible Positioning",
-        heroTitle:"RA — High-Value Innovation",
-        heroLead:"A premium presentation for your ideas.",
-        btnGoProjects:"Open Projects",
-        btnIP:"IP Notice",
-        c1t:"Premium Presentation", c1d:"Elegant structure for investors and partners.",
-        c2t:"Multilingual", c2d:"German / English / Arabic with RTL.",
-        c3t:"Professional Identity", c3d:"A clean brand look built around your logo.",
-        ctTitle:"Open for serious discussions",
-        ctText:"Email only (no phone). Details can be shared upon request.",
-        ctBtn:"Send Email",
-        legal:"Notice: This idea is protected by copyright. Commercial use or imitation without written permission is prohibited."
-      },
-      ar:{
-        brandSub:"استوديو ابتكار",
-        navHome:"الرئيسية", navProjects:"المشاريع", navContact:"تواصل",
-        ctaTop:"تواصل",
-        pill:"مفاهيم Premium • تموضع موثوق",
-        heroTitle:"رع — ابتكار عالي القيمة",
-        heroLead:"واجهة Premium لأفكارك.",
-        btnGoProjects:"فتح صفحة المشاريع",
-        btnIP:"تنبيه الملكية",
-        c1t:"عرض Premium", c1d:"هيكلة راقية للمستثمرين والشركاء.",
-        c2t:"ثلاث لغات", c2d:"ألماني / إنجليزي / عربي مع RTL.",
-        c3t:"هوية احترافية", c3d:"مظهر براند نظيف مبني على شعارك.",
-        ctTitle:"منفتحون للنقاش الجاد",
-        ctText:"البريد فقط (بدون رقم). التفاصيل عند الطلب.",
-        ctBtn:"إرسال بريد",
-        legal:"Hinweis: Diese Idee ist urheberrechtlich geschützt. Eine kommerzielle Nutzung oder Nachahmung ohne schriftliche Genehmigung ist untersagt."
-      }
-    };
-
-    const LANG_KEY="siteLang";
-    function setLang(lang){
-      localStorage.setItem(LANG_KEY, lang);
-      document.documentElement.lang = lang;
-      document.body.classList.toggle("rtl", lang==="ar");
-
-      ["DE","EN","AR"].forEach(k=>{
-        document.getElementById("btn"+k).classList.toggle("active", k.toLowerCase()===lang);
-      });
-
-      document.querySelectorAll("[data-i]").forEach(el=>{
-        const key = el.getAttribute("data-i");
-        el.textContent = (T[lang] && T[lang][key]) ? T[lang][key] : (T.de[key] || "");
-      });
-    }
-
-    document.getElementById("btnDE").addEventListener("click", ()=>setLang("de"));
-    document.getElementById("btnEN").addEventListener("click", ()=>setLang("en"));
-    document.getElementById("btnAR").addEventListener("click", ()=>setLang("ar"));
-
-    document.getElementById("ctaTop").addEventListener("click", ()=>{
-      document.getElementById("contact").scrollIntoView({behavior:"smooth"});
-    });
-    document.getElementById("btnMail").addEventListener("click", ()=>{
-      window.location.href="mailto:dawoudmohamed090@gmail.com?subject=RA%20—%20Contact";
-    });
-    document.getElementById("btnIP").addEventListener("click", ()=>{
-      const lang = localStorage.getItem(LANG_KEY) || "de";
-      alert((T[lang] && T[lang].legal) ? T[lang].legal : T.de.legal);
-    });
-
-    setLang(localStorage.getItem(LANG_KEY) || "de");
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
