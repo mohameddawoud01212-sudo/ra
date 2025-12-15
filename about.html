@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About — RA Innovation</title>
-  <meta name="description" content="About RA Innovation — who we are, what we build, and why it matters." />
+  <meta name="description" content="About RA Innovation — Global innovation across every field." />
 
-  <!-- ✅ نفس الملفات -->
+  <!-- shared files -->
   <link rel="stylesheet" href="./styles.css">
   <script src="./app.js" defer></script>
 </head>
@@ -22,23 +22,24 @@
         <a class="brand" href="./index.html">
           <div class="logo"></div>
           <div>
-            <strong>RA Innovation</strong>
-            <span>Architecting tomorrow’s reality</span>
+            <strong data-i="brandTitle">RA Innovation</strong>
+            <span data-i="brandSub">Global innovation across every field</span>
           </div>
         </a>
 
         <nav class="menu">
-          <a href="./index.html">Home</a>
-          <a href="./projects.html">Projects</a>
-          <a href="./about.html" class="active">About</a>
-          <a href="./contact.html">Contact</a>
+          <a href="./index.html" data-i="navHome">Home</a>
+          <a href="./projects.html" data-i="navProjects">Projects</a>
+          <a href="./about.html" class="active" data-i="navAbout">About</a>
+          <a href="./contact.html" data-i="navContact">Contact</a>
         </nav>
 
+        <!-- ✅ language (same as other pages) -->
         <div class="actions">
-          <div class="lang">
-            <div class="chip active">EN</div>
-            <div class="chip">DE</div>
-            <div class="chip">AR</div>
+          <div class="lang" title="Language">
+            <div class="chip active" data-lang="en">EN</div>
+            <div class="chip" data-lang="de">DE</div>
+            <div class="chip" data-lang="ar">AR</div>
           </div>
         </div>
       </div>
@@ -52,28 +53,28 @@
         <div>
           <div class="kicker">
             <span class="dot"></span>
-            <span>About Us</span>
+            <span data-i="aboutKicker">About Us</span>
           </div>
 
-          <h1>Who We Are</h1>
+          <h1 data-i="aboutTitle">Who We Are</h1>
 
-          <p class="sub">
+          <p class="sub" data-i="aboutP1">
             RA Innovation is a future-driven innovation company focused on building
             advanced solutions across technology, systems, and strategic development.
           </p>
 
-          <p class="sub">
-            We don’t follow trends — we design foundations.  
+          <p class="sub" data-i="aboutP2">
+            We don’t follow trends — we design foundations.
             Our work connects ideas, engineering, and execution into scalable realities.
           </p>
         </div>
 
-        <!-- يمين الصفحة – نفس شكل الهولو -->
+        <!-- hologram -->
         <div class="holo">
           <div class="holoInner">
             <div class="badge">
               <span class="pulse"></span>
-              Core Identity
+              <span data-i="aboutBadge">Core Identity</span>
             </div>
 
             <div class="holoCanvas">
@@ -98,18 +99,18 @@
       </div>
     </section>
 
-    <!-- ===== Values ===== -->
+    <!-- ===== Philosophy ===== -->
     <section>
       <div class="sectionTitle">
-        <h2>Our Philosophy</h2>
-        <p>What defines RA Innovation</p>
+        <h2 data-i="aboutSectionTitle">Our Philosophy</h2>
+        <p data-i="aboutSectionSub">What defines RA Innovation</p>
       </div>
 
       <div class="cards">
         <div class="card">
           <div class="cardInner">
-            <h3>Vision First</h3>
-            <p>
+            <h3 data-i="aboutCard1Title">Vision First</h3>
+            <p data-i="aboutCard1Text">
               Every project starts with a long-term vision,
               not short-term execution.
             </p>
@@ -118,8 +119,8 @@
 
         <div class="card">
           <div class="cardInner">
-            <h3>System Thinking</h3>
-            <p>
+            <h3 data-i="aboutCard2Title">System Thinking</h3>
+            <p data-i="aboutCard2Text">
               We build connected systems, not isolated products.
             </p>
           </div>
@@ -127,8 +128,8 @@
 
         <div class="card">
           <div class="cardInner">
-            <h3>Scalable Reality</h3>
-            <p>
+            <h3 data-i="aboutCard3Title">Scalable Reality</h3>
+            <p data-i="aboutCard3Text">
               Ideas must survive the real world — technically and economically.
             </p>
           </div>
@@ -136,8 +137,8 @@
 
         <div class="card">
           <div class="cardInner">
-            <h3>Independent Innovation</h3>
-            <p>
+            <h3 data-i="aboutCard4Title">Independent Innovation</h3>
+            <p data-i="aboutCard4Text">
               Original thinking without dependency on existing frameworks.
             </p>
           </div>
@@ -149,11 +150,11 @@
   <!-- ===== Footer ===== -->
   <footer>
     <div class="container foot">
-      <small>
+      <small data-i="footerCopy">
         © 2025 RA Innovation — All rights reserved.
       </small>
 
-      <div class="legal">
+      <div class="legal" data-i="footerLegal">
         Independent research, design, and innovation company.
       </div>
     </div>
