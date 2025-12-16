@@ -1,164 +1,82 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>About — RA Innovation</title>
-  <meta name="description" content="About RA Innovation — Global innovation across every field." />
-
-  <!-- shared files -->
-  <link rel="stylesheet" href="./styles.css">
-  <script src="./app.js" defer></script>
+  <title data-i="navAbout">RA Innovation - About Us</title>
+  <meta name="description" content="Learn more about RA Innovation, our philosophy, and our mission." />
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
   <div class="fx"></div>
   <div class="noise"></div>
 
-  <!-- ===== Header ===== -->
   <header>
     <div class="container">
       <div class="nav">
-        <a class="brand" href="./index.html">
-          <div class="logo"></div>
+        <a class="brand" href="index.html">
+          <div class="logo" style="background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAAD9ABTVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0AdH2jmgAAAXuSURBVGhD7ZhPiFVVAIC/c1E3U8xS7WJ5p5SjXUu3bFE/gI+iS9F/QYtA9OolWqE1+xG9BEmS4kL/g+hKk/eLgkhRk4wz957v3PuOXc+Z7Jzzj33vP/9w7m/mDNnzkz+X4A3wBNgAXAN+AF8Ah4Cj8ASsAK8A24DF4ETwGpgB3AEfA+2AVuAxcAC4BZwGtgAXACuAWuAHcC1YAHwCrgV7AIuA+uA5cAC4AawA5hZ6340BfgI/Ab+B14AfwDHgYvAUuA7dYj830X+F8A7y373qq0z/9pQd/8D7wGvAZ+Ap8BP4DfgH8AZYCP9b7b9f5f8X4BHwBngZ+B34BfgG+AP8Aj4DPwAfgZ+AL8CfwN/ATeB71u+m6O+C/AfwD3j3x93q7d/u4z7r9tXbXfG/Ab7d+u71s2u+n9Xf7q3Z3vG/A35o1v/P9e97Y6nO+R8DP3fGfA/8/N9P325/3/j/AT7qjfsT/Fdv/P9T/Xvqf27d/yXg053xPx3y+f8P+Nn+/d/N+T/Ff3zG7wL8wBv3S/jfBv9gV/xP4O32z/8G3m/9z/9oB3A36k842Pz8n/91eDvvj590gHcjdT+g/b4/+XfD3fN++N8B8z/g/c0t97f/xO93//h/Qn/k1gG/Nzv+f783/f+u8F/hF8L/m/Y/f0r/n/Qn/m1gG/M3/9f4J/R/w30F/5NfD3f/L/Bf4J/R/037l98L/m/Y/f0r/n/Qn/m1gG/M3/9f4N/R/wX0F/5NcP/8v/9P/i/g70H/f8L/BP7h8v9P/r/A/wf8g8v/P/FfAP/k+39v/k/gH/y/bXn/1P7x/xXwH/4uN/7/1P/L/CPV/j+0j/mv0L+l2v/n/xXwP/n+33v/0f/L/CPV/j+0r/m313hT/i/w39b/0/+v8L/h/xX/f8r/H/Jf7zC/zX/N/7/lv9/zX+d/w/4f8L/Jf8/xv8j/v8F/j/h/0P+Z8D/JvD3B/j/hP8P+P+E/w/4j9b9L/BvEP8P+G8Q/w34bxD/DfgvE/8P+P9vJ6y2/j8J/B8m/8e+v3D28j/d4vF/6v/hP/hf/Q9v3wN/~')"></div>
           <div>
-            <strong data-i="brandTitle">RA Innovation</strong>
-            <span data-i="brandSub">Global innovation across every field</span>
+            <strong data-i="brandTitle">RA Innovation</strong><br>
+            <small data-i="brandSub">Global innovation across every field</small>
           </div>
         </a>
-
         <nav class="menu">
-          <a href="./index.html" data-i="navHome">Home</a>
-          <a href="./projects.html" data-i="navProjects">Projects</a>
-          <a href="./about.html" class="active" data-i="navAbout">About</a>
-          <a href="./contact.html" data-i="navContact">Contact</a>
+          <a href="index.html" data-i="navHome">Home</a> 
+          <a class="active" href="about.html" data-i="navAbout">About Us</a> 
+          <a href="company.html" data-i="navCompany">Company</a> 
+          <a href="vision.html" data-i="navVision">Vision</a>
+          <a href="projects.html" data-i="navProjects">Projects</a>
+          <a href="contact.html" data-i="navContact">Contact</a>
         </nav>
-
-        <!-- ✅ language (same as other pages) -->
         <div class="actions">
-          <div class="lang" title="Language">
-            <div class="chip active" data-lang="en">EN</div>
-            <div class="chip" data-lang="de">DE</div>
+          <div class="lang">
+            <div class="chip" data-lang="en">EN</div>
             <div class="chip" data-lang="ar">AR</div>
+            <div class="chip" data-lang="de">DE</div>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- ===== Main ===== -->
-  <main class="container">
-    <section class="hero">
-      <div class="heroGrid">
-        <div>
-          <div class="kicker">
-            <span class="dot"></span>
-            <span data-i="aboutKicker">About Us</span>
-          </div>
-
-          <h1 data-i="aboutTitle">Who We Are</h1>
-
-          <p class="sub" data-i="aboutP1">
-            RA Innovation is a future-driven innovation company focused on building
-            advanced solutions across technology, systems, and strategic development.
-          </p>
-
-          <p class="sub" data-i="aboutP2">
-            We don’t follow trends — we design foundations.
-            Our work connects ideas, engineering, and execution into scalable realities.
-          </p>
-        </div>
-
-        <!-- hologram -->
-        <div class="holo">
-          <div class="holoInner">
-            <div class="badge">
-              <span class="pulse"></span>
-              <span data-i="aboutBadge">Core Identity</span>
-            </div>
-
-            <div class="holoCanvas">
-              <div class="tri">
-                <svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0" stop-color="#00E5FF"/>
-                      <stop offset="1" stop-color="#FF3B3B"/>
-                    </linearGradient>
-                  </defs>
-
-                  <path d="M300 80 L470 340 L130 340 Z"
-                        fill="none"
-                        stroke="url(#g1)"
-                        stroke-width="3"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
+  <main class="container" style="margin-top: 80px;">
+    <section class="about-hero">
+      <div class="badge" data-i="navAbout">ABOUT US</div>
+      <h1 data-i="aboutHeader">WER WIR SIND</h1>
+      <h2 data-i="aboutSubtitle" style="color: #00d2ff; margin-bottom: 30px;">Global Innovation in allen Bereichen</h2>
+      
+      <div class="about-content" style="max-width: 900px; font-size: 1.2rem; line-height: 1.6;">
+        <p data-i="aboutBody1" style="margin-bottom: 20px;">
+          RA Innovation ist ein zukunftsorientiertes Innovationsunternehmen, das sich auf den Aufbau konzentriert fortschrittliche Lösungen in Technologie, Systemen und strategischer Entwicklung.
+        </p>
+        <p data-i="aboutBody2">
+          Wir folgen keinen Trends – wir entwerfen Foundations. Unsere Arbeit verbindet Ideen, Technik und Umsetzung zu skalierbaren Realitäten.
+        </p>
       </div>
     </section>
 
-    <!-- ===== Philosophy ===== -->
-    <section>
-      <div class="sectionTitle">
-        <h2 data-i="aboutSectionTitle">Our Philosophy</h2>
-        <p data-i="aboutSectionSub">What defines RA Innovation</p>
-      </div>
-
-      <div class="cards">
-        <div class="card">
-          <div class="cardInner">
-            <h3 data-i="aboutCard1Title">Vision First</h3>
-            <p data-i="aboutCard1Text">
-              Every project starts with a long-term vision,
-              not short-term execution.
-            </p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="cardInner">
-            <h3 data-i="aboutCard2Title">System Thinking</h3>
-            <p data-i="aboutCard2Text">
-              We build connected systems, not isolated products.
-            </p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="cardInner">
-            <h3 data-i="aboutCard3Title">Scalable Reality</h3>
-            <p data-i="aboutCard3Text">
-              Ideas must survive the real world — technically and economically.
-            </p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="cardInner">
-            <h3 data-i="aboutCard4Title">Independent Innovation</h3>
-            <p data-i="aboutCard4Text">
-              Original thinking without dependency on existing frameworks.
-            </p>
-          </div>
-        </div>
-      </div>
+    <section style="margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px;">
+        <h3 data-i="aboutPhilosophy" style="letter-spacing: 2px; opacity: 0.8;">UNSERE PHILOSOPHIE</h3>
+        <p style="margin-top: 20px;" data-i="pageContentPlaceholder">
+            Innovation is not just about technology; it's about shifting paradigms. We aim to create systems that are not only efficient but also meaningful for the future of humanity.
+        </p>
     </section>
   </main>
 
-  <!-- ===== Footer ===== -->
   <footer>
-    <div class="container foot">
-      <small data-i="footerCopy">
-        © 2025 RA Innovation — All rights reserved.
-      </small>
-
-      <div class="legal" data-i="footerLegal">
-        Independent research, design, and innovation company.
+    <div class="container foot" style="margin-top: 100px; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <strong data-i="brandTitle">RA Innovation</strong><br>
+        <a data-i="contactEmailLink" href="mailto:Dawoudmohamed012@outlook.de" style="text-decoration: none; color: inherit;">
+            <small data-i="contactEmail">Dawoudmohamed012@outlook.de</small>
+        </a>
       </div>
+      <small data-i="footerCopy">© 2025 RA Innovation. All Rights Reserved.</small>
     </div>
   </footer>
-
+  
+  <script src="app.js"></script>
 </body>
 </html>
