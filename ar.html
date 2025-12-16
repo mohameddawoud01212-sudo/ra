@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>شركة رع للابتكار | RA Innovation Company</title>
+  <meta name="description" content="شركة رع للابتكار (RA Innovation Company) — ابتكار عالمي عبر كل المجالات. مشاريع تقنية ضخمة وحلول مستقبلية موجهة للشركاء والمستثمرين." />
+  <meta name="keywords" content="شركة رع للابتكار, رع, RA Innovation, شركة ابتكار, شركة تكنولوجيا, مشاريع مستقبلية, مستثمرين, شركاء" />
+
+  <style>
+    :root{
+      --bg:#050510;
+      --panel: rgba(255,255,255,.05);
+      --stroke: rgba(255,255,255,.12);
+      --txt: rgba(255,255,255,.90);
+      --muted: rgba(255,255,255,.70);
+      --cyan:#00E5FF;
+      --red:#FF3B3B;
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(1100px 650px at 20% 10%, rgba(0,229,255,.18), transparent 55%),
+        radial-gradient(900px 520px at 85% 25%, rgba(255,59,59,.14), transparent 60%),
+        linear-gradient(180deg, #050510, #07071a);
+      color:var(--txt);
+      overflow-x:hidden;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{width:min(1100px, 92vw); margin:0 auto}
+
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(10,10,26,.75), rgba(10,10,26,.35));
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0; gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+    }
+    .logo{
+      width:40px; height:40px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:
+        radial-gradient(circle at 30% 30%, rgba(0,229,255,.45), transparent 55%),
+        radial-gradient(circle at 75% 70%, rgba(255,59,59,.40), transparent 55%),
+        linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.02));
+      box-shadow:
+        0 0 22px rgba(0,229,255,.16),
+        0 0 22px rgba(255,59,59,.12);
+    }
+    .brand b{letter-spacing:.08em; text-transform:uppercase}
+    .brand small{display:block; color:var(--muted); margin-top:2px}
+
+    .btn{
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      padding:10px 12px;
+      background: rgba(255,255,255,.04);
+      color:rgba(255,255,255,.90);
+      font-size:13px;
+      cursor:pointer;
+    }
+    .btn:hover{border-color: rgba(255,255,255,.18)}
+    .cta{
+      background: linear-gradient(90deg, rgba(0,229,255,.16), rgba(255,59,59,.14));
+      box-shadow: 0 0 22px rgba(0,229,255,.10), 0 0 22px rgba(255,59,59,.08);
+    }
+
+    .hero{padding:54px 0 26px}
+    .card{
+      border-radius: 22px;
+      border: 1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: 0 18px 60px rgba(0,0,0,.55);
+      padding: 22px;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height:1.15;
+      background: linear-gradient(90deg, rgba(255,255,255,.92), rgba(0,229,255,.85), rgba(255,59,59,.86));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+    }
+    p{margin:0; line-height:1.9; color:var(--muted); font-size:15px}
+    .grid{
+      display:grid; gap:14px; margin-top:18px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
+    .box{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      padding: 16px;
+      min-height: 120px;
+    }
+    .box h2{
+      margin:0 0 8px;
+      font-size:14px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color: rgba(255,255,255,.90);
+    }
+    .box p{font-size:13px}
+
+    footer{
+      padding:26px 0 40px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color: rgba(255,255,255,.55);
+      font-size:12px;
+      margin-top: 26px;
+    }
+    .note{
+      margin-top:14px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 12px 14px;
+      color: rgba(255,255,255,.62);
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <b>RA Innovation Company</b>
+        <small>ابتكار عالمي عبر كل المجالات</small>
+      </div>
+    </div>
+
+    <a class="btn cta" href="index.html">العودة للموقع</a>
+  </div>
+</header>
+
+<main class="wrap hero">
+  <div class="card">
+    <h1>شركة رع للابتكار</h1>
+    <p>
+      RA Innovation Company هي علامة ابتكار عالمية تركّز على تطوير مفاهيم ومشاريع تقنية عالية القيمة
+      موجهة للشركاء والمستثمرين—بدون كشف تفاصيل المشاريع علنًا قبل الخطوات الرسمية.
+    </p>
+
+    <div class="grid">
+      <div class="box">
+        <h2>رؤية</h2>
+        <p>ابتكار في كل مجال—بمنهجية واضحة وطرح احترافي قابل للتوسع عالميًا.</p>
+      </div>
+      <div class="box">
+        <h2>للمستثمرين</h2>
+        <p>نوفر ملفات عروض وملخصات تنفيذية ومسارات تطوير عند الطلب ضمن إطار مهني.</p>
+      </div>
+      <div class="box">
+        <h2>للشركاء</h2>
+        <p>نبحث عن شركاء تصنيع/تقنية/تطوير لديهم قدرة على التنفيذ والتوسع.</p>
+      </div>
+    </div>
+
+    <div class="note">
+      ملاحظة: هذه الصفحة مخصصة لتحسين الظهور في البحث العربي ولتعريف موجز بالشركة.
+    </div>
+  </div>
+
+  <footer>
+    © RA Innovation Company — جميع الحقوق محفوظة
+  </footer>
+</main>
+</body>
+</html>
