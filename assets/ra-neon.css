@@ -1,0 +1,187 @@
+/* ========= RA NEON (Improved Clarity + Glass Content) ========= */
+
+:root{
+  --bg1:#071629;
+  --bg2:#0b2a4a;
+  --glass: rgba(10, 40, 70, .32);     /* شفافية أعلى */
+  --glass2: rgba(10, 40, 70, .22);
+  --border: rgba(255,255,255,.14);
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.72);
+  --accent: #35d3ff;
+  --shadow: 0 18px 60px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--text);
+  background: radial-gradient(1200px 900px at 30% 10%, #113b6a 0%, transparent 55%),
+              radial-gradient(900px 700px at 70% 25%, #0b4a6a 0%, transparent 50%),
+              linear-gradient(180deg, var(--bg2), var(--bg1));
+  overflow-x:hidden;
+}
+
+/* ====== Background Image (واضحة + بدون blur) ====== */
+.page-bg{
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:cover;
+  filter:none;                 /* ممنوع blur */
+  transform:translateZ(0);
+}
+
+/* طبقة خفيفة جدًا لتحسين قراءة النص بدون ما تقتل وضوح الصورة */
+.page-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg,
+    rgba(0,0,0,.25) 0%,
+    rgba(0,0,0,.18) 35%,
+    rgba(0,0,0,.30) 100%);
+  z-index:-1;
+}
+
+/* ====== Layout ====== */
+.wrap{
+  width:min(1100px, 92vw);
+  margin: 26px auto 40px;
+  padding-top: 12px;
+}
+
+.topnav{
+  position: sticky;
+  top: 10px;
+  z-index: 50;
+  width: fit-content;
+  margin: 0 auto 18px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.22);
+  border: 1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 35px rgba(0,0,0,.22);
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.topnav a{
+  text-decoration:none;
+  color: rgba(255,255,255,.82);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: .2s ease;
+}
+
+.topnav a:hover{
+  background: rgba(53, 211, 255, .14);
+  color: #fff;
+}
+
+.topnav a.active{
+  background: rgba(255,255,255,.92);
+  color: #0b2a4a;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+}
+
+/* ====== Main Glass Panel (مكان الكتابة شفاف) ====== */
+.panel{
+  border-radius: 22px;
+  padding: 22px;
+  background: var(--glass);         /* شفافية */
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);      /* glass */
+}
+
+.badge{
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  font-size:12px;
+  letter-spacing:.4px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(53,211,255,.35);
+  background: rgba(53,211,255,.10);
+  color:#e9fbff;
+}
+
+h1{
+  margin:12px 0 6px;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height:1.05;
+  letter-spacing:.5px;
+}
+
+.lead{
+  margin:0 0 14px;
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 920px;
+}
+
+/* Cards */
+.grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:12px;
+  margin-top:16px;
+}
+@media (min-width: 860px){
+  .grid.two{grid-template-columns: 1fr 1fr;}
+  .grid.three{grid-template-columns: 1fr 1fr 1fr;}
+}
+
+.card{
+  border-radius: 18px;
+  padding: 14px 14px;
+  background: var(--glass2);     /* شفافية أعلى */
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(10px);
+}
+
+.card h3{
+  margin:0 0 6px;
+  font-size: 14px;
+  color:#eaffff;
+}
+.card p{
+  margin:0;
+  color: rgba(255,255,255,.75);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.footerbar{
+  margin-top:16px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  color: rgba(255,255,255,.60);
+  font-size:12px;
+}
+
+.footerbar a{
+  color: rgba(255,255,255,.70);
+  text-decoration:none;
+}
+.footerbar a:hover{color:#fff}
+
+/* ===== Background mapping per page (حسب body class) ===== */
+body.page-start .page-bg{ background-image:url("assets/bg-start.png"); }
+body.page-projects .page-bg{ background-image:url("assets/bg-projects.png"); }
+body.page-company .page-bg{ background-image:url("assets/bg-company.png"); }
+body.page-institutions .page-bg{ background-image:url("assets/bg-institutions.png"); }
+body.page-partners .page-bg{ background-image:url("assets/bg-partners.png"); }
+body.page-investor .page-bg{ background-image:url("assets/bg-investor.png"); }
+body.page-contact .page-bg{ background-image:url("assets/bg-contact.png"); }
