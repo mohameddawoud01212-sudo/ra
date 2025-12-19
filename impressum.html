@@ -3,76 +3,53 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Impressum — RA Innovation Company</title>
-  <meta name="description" content="Impressum der RA Innovation Company." />
-  <link rel="icon" href="RA_Logo.png" />
+  <title>Impressum — RA Innovation</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <div class="bg fx-noise" aria-hidden="true"></div>
-  <div class="bg fx-grid" aria-hidden="true"></div>
-  <div class="bg fx-radials" aria-hidden="true"></div>
+<body class="legal">
+  <div class="page">
 
-  <header class="header">
-    <div class="container header__inner">
-      <a class="brand" href="index.html">
-        <img src="RA_Logo.png" class="brand__logo" alt="RA Innovation Logo" />
-        <div class="brand__text"><strong>RA Innovation</strong><span>Legal</span></div>
-      </a>
-      <nav class="nav">
-        <button class="nav__toggle" id="navToggle" aria-label="Menü öffnen">☰</button>
-        <ul class="nav__list" id="navList">
-          <li><a href="index.html">Start</a></li>
-          <li><a href="projects.html">Projekte</a></li>
-          <li><a href="company.html">Unternehmen</a></li>
-          <li><a class="btn btn--primary" href="contact.html">Kontakt</a></li>
+    <nav>
+      <div class="nav-wrap">
+        <a class="brand" href="index.html"><span class="dot"></span>RA Innovation</a>
+        <ul>
+          <li><a data-page="index.html" href="index.html">Start</a></li>
+          <li><a data-page="projects.html" href="projects.html">Projekte</a></li>
+          <li><a data-page="unternehmen.html" href="unternehmen.html">Unternehmen</a></li>
+          <li><a data-page="institutionen.html" href="institutionen.html">Unternehmen & Institutionen</a></li>
+          <li><a data-page="investors.html" href="investors.html">Partners & Investoren</a></li>
+          <li><a data-page="contact.html" href="contact.html">Kontakt</a></li>
         </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main class="section section--tight">
-    <div class="container">
-      <div class="section__head">
-        <h1>Impressum</h1>
-        <p class="muted">Bitte ergänzen Sie die folgenden Angaben korrekt (gesetzliche Pflichtangaben).</p>
       </div>
+    </nav>
 
-      <section class="glass">
-        <h2>Angaben gemäß § 5 TMG</h2>
-        <p>
-          <b>RA Innovation Company</b><br/>
-          Inhaber: <b>Mohamed Dawoud</b><br/>
-          Adresse: <b>IHRE_ADRESSE_HIER</b><br/>
-          E-Mail: <b>YOUR_OUTLOOK_EMAIL</b>
-        </p>
+    <main class="wrapper">
+      <div class="container">
+        <section class="glass">
+          <div class="kicker">LEGAL</div>
+          <h1>Impressum</h1>
+          <p class="lead">
+            Platzhalter-Text — hier später Ihre offiziellen Daten eintragen (Firma, Adresse, Vertretungsberechtigte Person usw.).
+          </p>
 
-        <h2>Haftung für Inhalte</h2>
-        <p class="muted">
-          Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links.
-          Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
-        </p>
-
-        <h2>Urheberrecht</h2>
-        <p class="muted">
-          Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem Urheberrecht.
-        </p>
-      </section>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__left">
-        <span>© <span id="year"></span> RA Innovation Company</span>
-        <span class="footer__sep">•</span>
-        <a href="datenschutz.html">Datenschutz</a>
+          <div class="grid">
+            <div class="card">
+              <h3>Kontakt</h3>
+              <p>E-Mail: dawoudmohamed090@gmail.com</p>
+            </div>
+            <div class="card">
+              <h3>Haftung</h3>
+              <p>Inhalte wurden mit Sorgfalt erstellt. Für externe Links übernehmen wir keine Haftung.</p>
+            </div>
+          </div>
+        </section>
       </div>
-      <div class="footer__right">
-        <a href="index.html">Startseite</a>
-      </div>
-    </div>
-  </footer>
+    </main>
+
+    <footer>
+      © 2025 RA Innovation Company — <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a>
+    </footer>
+  </div>
 
   <script src="app.js"></script>
 </body>
