@@ -1,357 +1,85 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="de">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>الشركات والمؤسسات | RA Innovation Company</title>
-  <meta name="description" content="تطوير شامل للشركات والمؤسسات — حلول متكاملة لبناء المستقبل الرقمي." />
+  <title>RA Innovation — Unternehmen & Institutionen</title>
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- Page-specific styling (keeps same cyber/glass look + RTL polish) -->
-  <style>
-    :root{
-      --bg1:#071523;
-      --bg2:#0B2A45;
-      --bg3:#0E4B70;
-      --glass: rgba(255,255,255,.08);
-      --glass2: rgba(255,255,255,.10);
-      --stroke: rgba(255,255,255,.14);
-      --txt: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.72);
-      --accent:#62E7FF;
-      --accent2:#3AA6FF;
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
-      --r: 18px;
-    }
-
-    /* fallback background if site css doesn't handle */
-    body{
-      margin:0;
-      color:var(--txt);
-      background:
-        radial-gradient(1000px 700px at 20% 10%, rgba(98,231,255,.20), transparent 55%),
-        radial-gradient(900px 650px at 80% 20%, rgba(58,166,255,.18), transparent 60%),
-        linear-gradient(140deg, var(--bg1), var(--bg2) 55%, var(--bg3));
-    }
-
-    .innerPage{ min-height:100vh; }
-    .innerWrap{ max-width:1100px; margin:0 auto; padding: 24px 16px 80px; }
-
-    .pageCard{
-      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
-      border: 1px solid var(--stroke);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-
-    .pageHeader{
-      padding: 26px 22px 10px;
-      border-bottom: 1px solid rgba(255,255,255,.10);
-    }
-
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius: 999px;
-      background: rgba(98,231,255,.14);
-      border: 1px solid rgba(98,231,255,.22);
-      color: var(--txt);
-      font-weight: 700;
-      font-size: 13px;
-      letter-spacing:.2px;
-    }
-
-    h1{
-      margin: 18px 0 10px;
-      font-size: clamp(30px, 3.6vw, 48px);
-      line-height: 1.15;
-      letter-spacing: .2px;
-    }
-
-    .lead{
-      margin:0 0 16px;
-      max-width: 900px;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.9;
-    }
-
-    .ctaRow{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top: 16px;
-    }
-
-    .btn{
-      text-decoration:none;
-      padding: 12px 16px;
-      border-radius: 12px;
-      font-weight: 800;
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.08);
-      color: var(--txt);
-      transition: .2s ease;
-    }
-    .btn:hover{ transform: translateY(-1px); border-color: rgba(98,231,255,.28); }
-
-    .btnPrimary{
-      background: linear-gradient(135deg, rgba(98,231,255,.25), rgba(58,166,255,.20));
-      border-color: rgba(98,231,255,.28);
-    }
-
-    .pageBody{ padding: 20px 18px 26px; }
-
-    .section{
-      margin: 14px 0 22px;
-      padding: 18px;
-      border-radius: var(--r);
-      background: var(--glass);
-      border: 1px solid rgba(255,255,255,.12);
-    }
-
-    .sectionTitle{
-      margin:0 0 10px;
-      font-size: 18px;
-      font-weight: 900;
-      letter-spacing:.2px;
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-
-    .sectionText{
-      margin:0 0 10px;
-      color: var(--muted);
-      line-height: 1.9;
-      font-size: 15px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 12px;
-    }
-    @media (max-width: 760px){
-      .grid{ grid-template-columns: 1fr; }
-      .innerWrap{ padding: 18px 12px 70px; }
-    }
-
-    .card{
-      background: rgba(255,255,255,.07);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius: var(--r);
-      padding: 14px 14px 12px;
-    }
-    .card h3{
-      margin:0 0 8px;
-      font-size: 16px;
-      font-weight: 900;
-    }
-    ul{
-      margin: 0;
-      padding: 0 18px 0 0;
-      color: var(--muted);
-      line-height: 1.9;
-      font-size: 14.5px;
-    }
-
-    .checkList li{
-      margin: 4px 0;
-    }
-
-    .steps{
-      counter-reset: step;
-      list-style: none;
-      padding-right: 0;
-    }
-    .steps li{
-      counter-increment: step;
-      margin: 10px 0;
-      padding: 12px 12px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
-      color: var(--muted);
-      position: relative;
-    }
-    .steps li::before{
-      content: counter(step);
-      display:inline-flex;
-      width: 30px;
-      height: 30px;
-      align-items:center;
-      justify-content:center;
-      border-radius: 999px;
-      margin-left: 10px;
-      color: var(--txt);
-      font-weight: 900;
-      background: rgba(98,231,255,.18);
-      border:1px solid rgba(98,231,255,.25);
-    }
-
-    .divider{
-      height:1px;
-      background: rgba(255,255,255,.10);
-      margin: 14px 0;
-    }
-
-    .footerCTA{
-      margin-top: 14px;
-      padding: 18px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, rgba(98,231,255,.12), rgba(58,166,255,.10));
-      border: 1px solid rgba(98,231,255,.20);
-    }
-    .footerCTA p{ margin:0; color: var(--muted); line-height: 1.9; }
-  </style>
 </head>
+<body class="institutions">
+  <div class="page">
 
-<body class="innerPage">
-  <main class="innerWrap">
-
-    <!-- Top Nav (keep your current nav structure) -->
-    <header class="innerTop">
-      <nav class="tileNav" aria-label="Navigation">
-        <a class="tileLink" href="index.html">Start</a>
-        <a class="tileLink" href="projects.html">Projekte</a>
-        <a class="tileLink" href="company.html">Unternehmen</a>
-        <a class="tileLink" href="investors.html">Partners &amp; Investoren</a>
-        <a class="tileLink" href="contact.html">Kontakt</a>
-        <!-- New page link -->
-        <a class="tileLink active" href="institutions.html">Unternehmen &amp; Institutionen</a>
-      </nav>
-    </header>
-
-    <section class="pageCard">
-      <div class="pageHeader">
-        <span class="badge">LIVE STATUS • حلول مؤسسية</span>
-        <h1>تطوير شامل للشركات والمؤسسات</h1>
-        <p class="lead">
-          <strong>حلول متكاملة لبناء المستقبل الرقمي</strong><br>
-          نقدّم للشركات والمؤسسات حلول تطوير شاملة ومتكاملة تغطي جميع الجوانب التقنية والإدارية والاستراتيجية،
-          بهدف رفع الكفاءة، تسريع النمو، وبناء أنظمة مستدامة قادرة على المنافسة في الأسواق الحديثة.
-        </p>
-        <p class="lead">
-          نعمل كشريك استراتيجي طويل الأمد، لا كمجرد مزوّد خدمة، ونركز على تحويل الأفكار والتحديات
-          إلى أنظمة عملية قابلة للتنفيذ والتوسع.
-        </p>
-
-        <div class="ctaRow">
-          <a class="btn btnPrimary" href="contact.html">📩 تواصل معنا الآن</a>
-          <a class="btn" href="mailto:info@ra-innovation.app?subject=طلب%20تطوير%20شامل%20للشركة">✉️ إرسال بريد</a>
-        </div>
+    <nav>
+      <div class="nav-wrap">
+        <a class="brand" href="index.html"><span class="dot"></span>RA Innovation</a>
+        <ul>
+          <li><a data-page="index.html" href="index.html">Start</a></li>
+          <li><a data-page="projects.html" href="projects.html">Projekte</a></li>
+          <li><a data-page="unternehmen.html" href="unternehmen.html">Unternehmen</a></li>
+          <li><a data-page="institutionen.html" href="institutionen.html">Unternehmen & Institutionen</a></li>
+          <li><a data-page="investors.html" href="investors.html">Partners & Investoren</a></li>
+          <li><a data-page="contact.html" href="contact.html">Kontakt</a></li>
+        </ul>
       </div>
+    </nav>
 
-      <div class="pageBody">
+    <main class="wrapper">
+      <div class="container">
+        <section class="glass">
+          <div class="kicker">B2B</div>
+          <h1>Unternehmen & Institutionen</h1>
+          <p class="lead">
+            Ganzheitliche Entwicklung für Unternehmen & Institutionen — integrierte Lösungen für eine digitale Zukunft.
+            Wir verbinden technische, administrative und strategische Aspekte mit dem Ziel, Effizienz zu steigern und Wachstum zu beschleunigen.
+          </p>
 
-        <div class="section">
-          <div class="sectionTitle">ماذا نقدّم؟</div>
           <div class="grid">
-
             <div class="card">
-              <h3>🔹 التطوير التقني والرقمي</h3>
-              <ul class="checkList">
-                <li>تطوير مواقع إلكترونية احترافية (Corporate Websites)</li>
-                <li>تطوير أنظمة ويب وتطبيقات مخصصة (Web &amp; Mobile)</li>
-                <li>أنظمة داخلية لإدارة العمليات (ERP / CRM / Dashboards)</li>
-                <li>أتمتة العمليات وتحسين سير العمل</li>
-                <li>تكامل الأنظمة والربط بين المنصات المختلفة</li>
+              <h3>Technische & digitale Entwicklung</h3>
+              <ul>
+                <li>Corporate Websites & Plattformen</li>
+                <li>Web- & Mobile-Anwendungen</li>
+                <li>Dashboards / interne Systeme</li>
+                <li>Prozessautomation & Integration</li>
               </ul>
             </div>
-
             <div class="card">
-              <h3>🔹 الذكاء الاصطناعي والتحول الذكي</h3>
-              <ul class="checkList">
-                <li>حلول ذكاء اصطناعي مخصصة حسب طبيعة العمل</li>
-                <li>تحليل البيانات واتخاذ القرار الذكي</li>
-                <li>أتمتة خدمة العملاء (AI Assistants &amp; Chatbots)</li>
-                <li>أنظمة تنبؤ وتحليل مخاطر وفرص</li>
-                <li>دمج الذكاء الاصطناعي في المنتجات والخدمات القائمة</li>
+              <h3>KI & intelligenter Wandel</h3>
+              <ul>
+                <li>Individuelle KI-Lösungen</li>
+                <li>Datenanalyse & Entscheidungsunterstützung</li>
+                <li>Automatisierter Kundenservice</li>
+                <li>Risiko- & Chancenanalyse</li>
               </ul>
             </div>
-
             <div class="card">
-              <h3>🔹 التخطيط الاستراتيجي والتطوير المؤسسي</h3>
-              <ul class="checkList">
-                <li>تحليل الوضع الحالي وتحديد نقاط القوة والضعف</li>
-                <li>إعادة هيكلة الأنظمة والعمليات</li>
-                <li>تطوير نماذج أعمال قابلة للتوسع</li>
-                <li>دعم الابتكار وإطلاق منتجات أو خدمات جديدة</li>
-                <li>إعداد خطط نمو رقمية طويلة المدى</li>
+              <h3>Sicherheit & Compliance</h3>
+              <ul>
+                <li>Privacy-by-Design</li>
+                <li>Security-Architekturen</li>
+                <li>Dokumentation & Standards</li>
+                <li>Langfristige Wartung</li>
               </ul>
             </div>
-
             <div class="card">
-              <h3>🔹 الأمن، الخصوصية، والامتثال</h3>
-              <ul class="checkList">
-                <li>حماية البيانات والأنظمة</li>
-                <li>حلول أمن سيبراني</li>
-                <li>الامتثال للأنظمة الأوروبية (GDPR)</li>
-                <li>بناء أنظمة آمنة وقانونية من الأساس</li>
+              <h3>Strategie & Organisation</h3>
+              <ul>
+                <li>IT-Analyse & Potenziale</li>
+                <li>Restrukturierung von Prozessen</li>
+                <li>Skalierung & Roadmap</li>
+                <li>Launch & Wachstum</li>
               </ul>
             </div>
-
           </div>
-        </div>
-
-        <div class="section">
-          <div class="sectionTitle">لماذا نحن؟</div>
-          <ul class="checkList">
-            <li>✔ حلول مخصصة 100% (لا نستخدم قوالب جاهزة)</li>
-            <li>✔ فهم عميق للتقنية والأعمال معًا</li>
-            <li>✔ خبرة في مشاريع معقّدة ومتعددة المجالات</li>
-            <li>✔ رؤية استراتيجية وليس تنفيذ تقني فقط</li>
-            <li>✔ قابلية توسع مستقبلية لكل مشروع</li>
-          </ul>
-        </div>
-
-        <div class="section">
-          <div class="sectionTitle">آلية العمل</div>
-          <ol class="steps">
-            <li>جلسة تحليل وفهم المتطلبات</li>
-            <li>تقديم تصور واضح وخطة تنفيذ</li>
-            <li>تنفيذ احترافي بمراحل واضحة</li>
-            <li>اختبارات – تحسين – تسليم</li>
-            <li>دعم وتطوير مستمر</li>
-          </ol>
-        </div>
-
-        <div class="section">
-          <div class="sectionTitle">لمن هذه الخدمات؟</div>
-          <ul class="checkList">
-            <li>الشركات الناشئة (Startups)</li>
-            <li>الشركات المتوسطة والكبيرة</li>
-            <li>المؤسسات الحكومية والخاصة</li>
-            <li>المشاريع التي تحتاج إلى تطوير شامل أو إعادة بناء</li>
-          </ul>
-        </div>
-
-        <div class="footerCTA">
-          <div class="sectionTitle">ابدأ معنا</div>
-          <p>
-            إذا كنت تبحث عن شريك تقني واستراتيجي قادر على تنفيذ مشاريع تطوير شاملة باحترافية عالية، يسعدنا التواصل معك.
-          </p>
-          <div class="divider"></div>
-          <p>
-            📩 تواصل معنا الآن لعرض متطلباتك<br>
-            وسنقوم بدراسة مشروعك وتقديم الحل الأنسب لك.
-          </p>
-          <div class="ctaRow" style="margin-top:14px">
-            <a class="btn btnPrimary" href="contact.html">📩 صفحة التواصل</a>
-            <a class="btn" href="mailto:info@ra-innovation.app?subject=طلب%20تطوير%20شامل%20للشركات%20والمؤسسات">✉️ Email</a>
-          </div>
-        </div>
-
+        </section>
       </div>
-    </section>
-  </main>
+    </main>
 
-  <!-- Optional: Your existing app.js (if your site uses it) -->
+    <footer>
+      © 2025 RA Innovation Company — <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a>
+    </footer>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>
