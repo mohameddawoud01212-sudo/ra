@@ -2,87 +2,183 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kontakt | RA Innovation Company</title>
-  <meta name="description" content="Kontakt — Partnerschaften, Investorenanfragen und Kooperationen." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kontakt – RA Innovation Company</title>
+
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="ra-neon.css" />
+
+  <!-- ===== Kontakt FIX (Kontakt فقط) ===== -->
+  <style>
+    /* 1) خلّي الـ scrollbar ثابت عشان الـ NAV مايتحركش يمين/شمال */
+    html { overflow-y: scroll; scrollbar-gutter: stable; }
+    body.contact { overflow-x: hidden; }
+
+    /* 2) ثبّت الـ NAV */
+    body.contact .innerTop{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 99999;
+    }
+
+    /* 3) أهم نقطة: امنع أي transform/filter على الحاويات اللي بتكسر fixed */
+    body.contact .innerWrap,
+    body.contact .pageCard{
+      transform: none !important;
+      filter: none !important;
+      will-change: auto !important;
+    }
+
+    /* 4) نفس شكل الصفحات التانية (الـ padding فوق علشان الـ NAV) */
+    body.contact .innerWrap{
+      padding-top: 120px; /* نفس اللي عندك تقريبًا */
+    }
+
+    /* ===== Kontakt Form UI (Glass مثل باقي الصفحات) ===== */
+    body.contact .contactGrid{
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 780px;
+    }
+
+    body.contact .contactGrid textarea{
+      grid-column: 1 / -1;
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    body.contact .contactGrid input,
+    body.contact .contactGrid textarea{
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      outline: none;
+    }
+
+    body.contact .contactGrid input::placeholder,
+    body.contact .contactGrid textarea::placeholder{
+      color: rgba(255,255,255,0.55);
+    }
+
+    body.contact .contactGrid input:focus,
+    body.contact .contactGrid textarea:focus{
+      border-color: rgba(0,200,255,0.35);
+      box-shadow: 0 0 0 3px rgba(0,200,255,0.10);
+    }
+
+    body.contact .contactActions{
+      margin-top: 14px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    body.contact .sendBtn{
+      border: 1px solid rgba(0,200,255,0.25);
+      background: rgba(0,200,255,0.14);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    body.contact .sendBtn:hover{
+      background: rgba(0,200,255,0.20);
+      border-color: rgba(0,200,255,0.35);
+    }
+
+    body.contact .directBlock{
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      max-width: 780px;
+    }
+
+    body.contact .directBlock a{
+      color: #a7c8e6;
+      text-decoration: none;
+    }
+    body.contact .directBlock a:hover{ text-decoration: underline; }
+
+    @media (max-width: 720px){
+      body.contact .contactGrid{
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
-<body class="innerPage">
+<body class="contact">
+
+  <!-- NAV -->
+  <div class="innerTop">
+    <nav class="tileNav">
+      <a class="tileLink" href="index.html">Start</a>
+      <a class="tileLink" href="projects.html">Projekte</a>
+      <a class="tileLink" href="company.html">Unternehmen</a>
+      <a class="tileLink" href="institutions.html">Unternehmen &amp; Institutionen</a>
+      <a class="tileLink" href="investors.html">Partners &amp; Investoren</a>
+      <a class="tileLink active" href="contact.html">Kontakt</a>
+    </nav>
+  </div>
+
+  <!-- CONTENT -->
   <main class="innerWrap">
-
-    <header class="innerTop">
-      <nav class="tileNav" aria-label="Navigation">
-        <a class="tileLink" href="index.html">Start</a>
-        <a class="tileLink" href="projects.html">Projekte</a>
-        <a class="tileLink" href="company.html">Unternehmen</a>
-        <a class="tileLink" href="strategic.html">Partners & Investoren</a>
-        <a class="tileLink active" href="contact.html">Kontakt</a>
-      </nav>
-    </header>
-
     <section class="pageCard">
-      <div class="pageHeader">
 
-        <div class="pageBadge">LIVE STATUS</div>
-        <h1 class="pageTitle">KONTAKT</h1>
-
+      <header class="pageHeader">
+        <div class="pageBadge">KONTAKT</div>
+        <h1 class="pageTitle">Kontakt</h1>
         <p class="pageSub">
-          Strategische Anfragen, Partnerschaften, Investorenkontakte oder technische Kooperationen — wir antworten strukturiert und direkt.
+          Schreiben Sie uns — wir antworten strukturiert und schnell.
+          Bitte kurz Ziel, Umfang und Zeitraum beschreiben.
         </p>
+      </header>
 
+      <!-- FORM -->
+      <form class="contactForm" action="#" method="post">
         <div class="contactGrid">
-          <div class="stackItem" style="padding:18px;">
-            <h3>Nachricht senden</h3>
-            <p style="margin-top:6px;opacity:.85;">
-              Kontaktformular — Nachrichten werden sicher übermittelt.
-            </p>
-
-            <form class="contactForm" action="https://formspree.io/f/xrbnwgeb" method="POST">
-              <label>Name</label>
-              <input type="text" name="name" placeholder="Dein Name" required />
-
-              <label>E-Mail</label>
-              <input type="email" name="email" placeholder="dein@email.de" required />
-
-              <label>Betreff</label>
-              <input type="text" name="subject" placeholder="Betreff" />
-
-              <label>Nachricht</label>
-              <textarea name="message" placeholder="Schreibe deine Nachricht..." required></textarea>
-
-              <div class="btnRow">
-                <button class="btn" type="submit">Senden</button>
-                <a class="btn secondary" href="mailto:dawoudmohamed012@outlook.de">E-Mail öffnen</a>
-              </div>
-            </form>
-          </div>
-
-          <div class="stackItem" style="padding:18px;">
-            <h3>Kontakt-Info</h3>
-            <div style="margin-top:10px;opacity:.92;line-height:1.7;">
-              <div><strong>E-Mail:</strong> dawoudmohamed012@outlook.de</div>
-              <div><strong>Domain:</strong> ra-innovation.app</div>
-              <div><strong>Standort:</strong> EU / Deutschland</div>
-            </div>
-          </div>
+          <input type="text" name="name" placeholder="Name" required />
+          <input type="email" name="email" placeholder="E-Mail" required />
+          <input type="text" name="subject" placeholder="Betreff" />
+          <input type="text" name="timeframe" placeholder="Zeitraum (optional)" />
+          <textarea name="message" placeholder="Nachricht" required></textarea>
         </div>
 
-      </div>
-    </section>
+        <div class="contactActions">
+          <button class="sendBtn" type="submit">Senden</button>
+        </div>
+      </form>
 
+      <!-- DIRECT -->
+      <div class="directBlock">
+        <h3 style="margin:0 0 8px;">Direkt</h3>
+        <div style="opacity:0.9; line-height:1.7;">
+          E-Mail: <a href="mailto:dawoudmohamed012@outlook.de">dawoudmohamed012@outlook.de</a><br/>
+          Telefon: +49 (bitte auf Anfrage)
+        </div>
+      </div>
+
+      <!-- FOOTER (نفس روح الصفحات) -->
+      <footer class="siteFooter">
+        <div>© 2025 RA Innovation Company</div>
+        <div class="footerLinks">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </footer>
+
+    </section>
   </main>
 
-  <footer class="siteFooter">
-    <div>© 2025 RA Innovation Company</div>
-    <div style="opacity:.85;">
-      Hinweis: Diese Idee ist urheberrechtlich geschützt. Eine kommerzielle Nutzung oder Nachahmung ohne schriftliche Genehmigung ist untersagt.
-    </div>
-    <div>
-      <a href="impressum.html">Impressum</a>
-      &nbsp;·&nbsp;
-      <a href="datenschutz.html">Datenschutz</a>
-    </div>
-  </footer>
 </body>
 </html>
